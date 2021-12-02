@@ -29,7 +29,6 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   ${tw`
-    max-h-screen 
     max-w-full
   `}
 
@@ -40,7 +39,10 @@ export const Image = styled.img`
       opacity: ${opacity};
       filter: grayscale(100%) contrast(${contrast}) blur(${blur}) brightness(${brightness});
       mix-blend-mode: ${blendMode};
-      max-height: calc(100vh - calc(${spacing}px * 2));
+      max-height: calc(50vh - calc(${spacing}px * 2)); 
+      @media screen and (min-width:768px){
+        max-height: calc(100vh - calc(${spacing}px * 2)); 
+      }
     `;
   }}
 `;

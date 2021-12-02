@@ -4,7 +4,7 @@ import React, { useEffect, useReducer, createContext } from 'react';
 const initialState = {
   image: {
     blendMode: 'multiply',
-    src: 'https://media4.giphy.com/media/ujZtlj1Y7wXyE/giphy.gif?cid=ecf05e4746v8idsh2ngy5s6jdcieveq19t5hukrfl8zkyuum&rid=giphy.gif&ct=g',
+    src: 'https://images.pexels.com/photos/10401243/pexels-photo-10401243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     opacity: 0.8,
     blur: 0,
     brightness: 1,
@@ -16,7 +16,7 @@ const initialState = {
   },
   wrapper: {
     spacing: '15',
-    scale: 1.9,
+    scale: 1,
     bg: ' #08b76c',
   },
 };
