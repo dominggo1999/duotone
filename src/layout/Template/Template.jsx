@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import short from 'short-uuid';
 import {
   TemplateItem,
@@ -7,6 +7,7 @@ import {
   ColorPreview,
   Blob,
 } from './Template.style';
+import { CanvasContext } from '../../context/Canvas.context';
 
 const colors = [
   {
@@ -69,34 +70,55 @@ const createKeyFrames = () => {
 };
 
 const Template = () => {
-  return (
-    <TemplateWrapper>
-      {
-        colors && colors.map((i) => {
-          const frames = createKeyFrames();
-          const scaleTime = 10 + Math.ceil(Math.random() * 20);
-          const rotateTime = 30 + Math.ceil(Math.random() * 100);
+  // VITE BUG, need to do this to prevent error on development
+  if(!CanvasContext) {
+    return null;
+  }
+  const {
+    updateValue,
+  } = useContext(CanvasContext) || {};
 
-          return (
-            <TemplateItem key={short.generate()}>
-              <ColorPreview>
-                <Blob
-                  c1={i.color1}
-                  c2={i.color2}
-                  frames={frames}
-                  scaleTime={scaleTime}
-                  rotateTime={rotateTime}
-                />
-              </ColorPreview>
-              <TemplateName>
-                {i.name}
-              </TemplateName>
-            </TemplateItem>
-          );
-        })
-      }
-    </TemplateWrapper>
-  );
+  // VITE BUG, need to do this to prevent error on development
+  if(!CanvasContext) {
+    return null;
+  }
+
+  const changeColors = (theme) => {
+    updateValue('wrapper', 'bg', theme.color2);
+    updateValue('foreground', 'bg', theme.color1);
+  };
+
+  return useMemo(() => {
+    return (
+      <TemplateWrapper>
+        {
+          colors && colors.map((i) => {
+            const frames = createKeyFrames();
+            const scaleTime = 10 + Math.ceil(Math.random() * 20);
+            const rotateTime = 30 + Math.ceil(Math.random() * 100);
+
+            return (
+              <TemplateItem key={short.generate()}>
+                <ColorPreview>
+                  <Blob
+                    onClick={() => changeColors(i)}
+                    c1={i.color1}
+                    c2={i.color2}
+                    frames={frames}
+                    scaleTime={scaleTime}
+                    rotateTime={rotateTime}
+                  />
+                </ColorPreview>
+                <TemplateName>
+                  {i.name}
+                </TemplateName>
+              </TemplateItem>
+            );
+          })
+        }
+      </TemplateWrapper>
+    );
+  }, [colors]);
 };
 
 export default Template;
