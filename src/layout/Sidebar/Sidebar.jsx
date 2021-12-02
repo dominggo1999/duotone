@@ -8,8 +8,10 @@ import {
   SidebarWrapper, TabLabel,
 } from './Sidebar.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
-
 import Brand from '../Brand/Brand';
+
+// Panel
+import Template from '../Template/Template';
 
 const icons = [
   {
@@ -60,7 +62,7 @@ const Sidebar = () => {
 
         <PanelWrapper>
           <TabPanel>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, doloribus quidem impedit magni ullam corporis ratione recusandae? Et error nemo minus repellendus asperiores impedit repudiandae neque unde, aspernatur, necessitatibus aut blanditiis, sunt eveniet fuga. Quasi, eos quia beatae dolorem ratione cum ullam fugit, iusto pariatur hic ab, officia reiciendis ducimus eveniet eum vero rerum quisquam aliquam. Assumenda inventore quibusdam voluptatum et quas ipsum commodi. Quis excepturi modi atque. Sed fuga illo ducimus ea omnis quo enim deleniti laboriosam eaque facere quasi, vel quaerat, eos maiores repudiandae sequi doloribus, itaque blanditiis dignissimos? Dolor pariatur veniam ut aperiam quia odit velit voluptates?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet animi voluptatibus laboriosam aut eveniet vero cum velit fugit, perferendis asperiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, nulla!</h2>
+            <Template />
           </TabPanel>
           <TabPanel>
             <h2>Any content 2</h2>
