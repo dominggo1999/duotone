@@ -1,10 +1,13 @@
 import React from 'react';
-import Editor from './pages/Editor';
+import Main from './pages/Main';
+import CanvasProvider from './context/Canvas.context';
 
 const App = () => {
   return (
     <>
-      <Editor />
+      <CanvasProvider>
+        <Main />
+      </CanvasProvider>
     </>
   );
 };
