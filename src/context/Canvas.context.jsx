@@ -4,8 +4,8 @@ import React, { useEffect, useReducer, createContext } from 'react';
 const initialState = {
   image: {
     blendMode: 'multiply',
-    src: 'https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    opacity: 1,
+    src: 'https://media4.giphy.com/media/ujZtlj1Y7wXyE/giphy.gif?cid=ecf05e4746v8idsh2ngy5s6jdcieveq19t5hukrfl8zkyuum&rid=giphy.gif&ct=g',
+    opacity: 0.8,
     blur: 0,
     brightness: 1,
     contrast: 1,
@@ -15,8 +15,8 @@ const initialState = {
     blendMode: 'lighten',
   },
   wrapper: {
-    spacing: '10',
-    scale: 0.8,
+    spacing: '15',
+    scale: 1.9,
     bg: ' #08b76c',
   },
 };
@@ -74,8 +74,6 @@ const CanvasProvider = ({ children }) => {
     updateValue,
     useTemplate,
   };
-
-  console.log(value);
 
   return (
     <CanvasContext.Provider value={value}>

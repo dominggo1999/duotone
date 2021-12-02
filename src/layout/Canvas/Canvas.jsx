@@ -8,9 +8,18 @@ import {
 import { CanvasContext } from '../../context/Canvas.context';
 
 const Canvas = () => {
+  // VITE BUG, need to do this to prevent error on development
+  if(!CanvasContext) {
+    return null;
+  }
   const {
     wrapper, image, foreground, updateValue,
   } = useContext(CanvasContext) || {};
+
+  // VITE BUG, need to do this to prevent error on development
+  if(!CanvasContext) {
+    return null;
+  }
 
   return (
     <CanvasWrapper>

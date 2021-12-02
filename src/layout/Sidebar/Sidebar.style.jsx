@@ -8,16 +8,17 @@ import {
 } from 'react-tabs';
 
 export const SidebarWrapper = styled.div`
-  ${tw`
-    h-[300px]
+  ${tw` 
+    min-h-[50%]
     md:h-full 
     md:w-[400px]
     bg-primary 
     pt-5
     px-4
     md:py-5 
-    md:px-6 
-    overflow-hidden
+    md:px-6  
+    flex 
+    flex-col
   `}
 `;
 

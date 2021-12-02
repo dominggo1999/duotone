@@ -1,14 +1,15 @@
 import tw, { styled, css } from 'twin.macro';
 
 export const CanvasWrapper = styled.div`
-  ${tw`
-    w-full 
+  ${tw` 
     h-full
+    w-full 
     bg-secondary 
     flex 
     items-center 
     justify-center 
-    relative
+    relative 
+    overflow-hidden
   `}
 `;
 
