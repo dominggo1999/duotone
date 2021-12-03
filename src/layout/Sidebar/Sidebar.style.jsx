@@ -11,12 +11,10 @@ export const SidebarWrapper = styled.div`
   ${tw` 
     min-h-[50%]
     md:h-full 
-    md:w-[400px]
-    bg-primary 
+    md:min-w-[350px]
+    bg-black 
     pt-5
-    px-4
     md:py-5 
-    md:px-6  
     flex 
     flex-col
   `}
@@ -39,6 +37,8 @@ export const TabList = styled(UnstyledTabList)`
     justify-between 
     py-2
     md:py-5
+    px-4 
+    md:px-5
   `}
 `;
 
@@ -78,6 +78,8 @@ export const TabPanel = styled(UnstyledTabPanel).attrs({ selectedClassName: 'sel
   &.selected {
     ${tw`
       block 
+      px-4 
+      md:px-5
     `}
   }
 `;

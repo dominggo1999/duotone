@@ -12,6 +12,7 @@ import Brand from '../Brand/Brand';
 
 // Panel
 import Template from '../Template/Template';
+import Settings from '../Settings/Settings';
 
 const icons = [
   {
@@ -65,7 +66,7 @@ const Sidebar = () => {
             <Template />
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            <Settings />
           </TabPanel>
           <TabPanel>
             <h2>Any content 3</h2>

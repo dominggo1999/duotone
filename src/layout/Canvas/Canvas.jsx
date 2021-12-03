@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import {
   CanvasWrapper,
   ImageWrapper,
@@ -21,15 +22,34 @@ const Canvas = () => {
     return null;
   }
 
+  const imageWrapperStyle = {
+    position: 'relative',
+    backgroundColor: wrapper.bg,
+    transform: `scale(${wrapper.scale})`,
+    padding: `${wrapper.spacing}px`,
+  };
+
+  const isMedium = useMediaQuery({ query: '(min-width: 768px)' });
+  const imageStyle = {
+    opacity: `${image.opacity}`,
+    filter: `grayscale(100%) contrast(${image.contrast}) blur(${image.blur}px) brightness(${image.brightness})`,
+    mixBlendMode: `${image.blendMode}`,
+    maxHeight: isMedium ? `calc(100vh - 30px - calc(${wrapper.spacing}px * 2))` : `calc(50vh - 30px - calc(${wrapper.spacing}px * 2))`,
+  };
+
+  const foregroundStyle = {
+    backgroundColor: `${foreground.bg}`,
+    mixBlendMode: `${foreground.blendMode}`,
+  };
+
   return (
     <CanvasWrapper>
-      <ImageWrapper {...wrapper}>
+      <ImageWrapper style={imageWrapperStyle}>
         <Image
-          spacing={wrapper.spacing}
           src={image.src}
-          {...image}
+          style={imageStyle}
         />
-        <Foreground {...foreground} />
+        <Foreground style={foregroundStyle} />
       </ImageWrapper>
     </CanvasWrapper>
   );

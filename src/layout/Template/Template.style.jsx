@@ -8,7 +8,6 @@ export const TemplateWrapper = styled.div`
     gap-y-6 
     justify-between 
     py-5 
-    pr-[8px]
   `}
 `;
 
