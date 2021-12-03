@@ -31,7 +31,7 @@ const Canvas = () => {
 
   const isMedium = useMediaQuery({ query: '(min-width: 768px)' });
   const imageStyle = {
-    opacity: `${image.opacity}`,
+    opacity: `${image.opacity}%`,
     filter: `grayscale(100%) contrast(${image.contrast}) blur(${image.blur}px) brightness(${image.brightness})`,
     mixBlendMode: `${image.blendMode}`,
     maxHeight: isMedium ? `calc(100vh - 30px - calc(${wrapper.spacing}px * 2))` : `calc(50vh - 30px - calc(${wrapper.spacing}px * 2))`,

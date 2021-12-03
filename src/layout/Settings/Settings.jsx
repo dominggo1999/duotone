@@ -29,6 +29,10 @@ const Settings = () => {
     updateValue('image', 'contrast', val);
   };
 
+  const changeImageOpacity = (val) => {
+    updateValue('image', 'opacity', val);
+  };
+
   return (
     <SettingsWrapper>
       <Slider
@@ -46,6 +50,14 @@ const Settings = () => {
         values={[wrapper.spacing]}
         onChange={changeSpacing}
         label="Spacing"
+      />
+      <Slider
+        step={1}
+        min={0}
+        max={100}
+        values={[image.opacity]}
+        onChange={changeImageOpacity}
+        label="Image Opacity"
       />
       <Slider
         step={0.01}

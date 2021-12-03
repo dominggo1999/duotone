@@ -5,7 +5,7 @@ const initialState = {
   image: {
     blendMode: 'multiply',
     src: 'https://c.tenor.com/ubkgsEHmfe4AAAAC/anime-aesthetic.gif',
-    opacity: 0.8,
+    opacity: 80,
     blur: 0,
     brightness: 1,
     contrast: 1,
