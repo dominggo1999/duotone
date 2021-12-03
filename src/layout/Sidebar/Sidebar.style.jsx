@@ -78,7 +78,6 @@ export const TabPanel = styled(UnstyledTabPanel).attrs({ selectedClassName: 'sel
   &.selected {
     ${tw`
       block 
-      md:pr-2
     `}
   }
 `;

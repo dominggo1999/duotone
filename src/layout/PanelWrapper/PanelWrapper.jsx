@@ -8,9 +8,6 @@ const PanelWrapper = ({ children }) => {
       <Scrollbars
         autoHide
         autoHideDuration={200}
-        style={{
-          minHeight: '100%',
-        }}
         renderThumbVertical={(props) => (
           <div
             {...props}

@@ -36,8 +36,38 @@ const colors = [
     name: 'RedBlack',
   },
   {
-    color1: '#91CFF8',
-    color2: '#FFFFFF',
+    color1: '#000000',
+    color2: '#C35655',
+    name: 'RedBlack',
+  },
+  {
+    color1: '#00007E',
+    color2: '#6AFF7F',
+    name: 'Spotify',
+  },
+  {
+    color1: '#682218',
+    color2: '#F8BE3D',
+    name: 'Yeah',
+  },
+  {
+    color1: '#290900',
+    color2: '#FFEFB3',
+    name: 'Brownies',
+  },
+  {
+    color1: '#8682D9',
+    color2: '#DEFCFE',
+    name: 'RedBlack',
+  },
+  {
+    color1: '#4693AA',
+    color2: '#EF009E',
+    name: 'RedBlack',
+  },
+  {
+    color1: '#000000',
+    color2: '#C35655',
     name: 'RedBlack',
   },
 ];

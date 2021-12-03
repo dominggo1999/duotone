@@ -8,12 +8,13 @@ export const TemplateWrapper = styled.div`
     gap-y-6 
     justify-between 
     py-5 
+    pr-[8px]
   `}
 `;
 
 export const TemplateItem = styled.div`
   ${tw`
-    w-1/2
+    w-1/3
     cursor-pointer 
     flex 
     flex-col
@@ -40,7 +41,7 @@ export const ColorPreview = styled.div`
     mb-2
   `}
 
-  aspect-ratio: 1/1.05;
+  aspect-ratio: 1/1;
 `;
 
 const morph = ({ frames }) => keyframes`
