@@ -128,10 +128,12 @@ const Template = () => {
             const rotateTime = 30 + Math.ceil(Math.random() * 100);
 
             return (
-              <TemplateItem key={short.generate()}>
+              <TemplateItem
+                onClick={() => changeColors(i)}
+                key={short.generate()}
+              >
                 <ColorPreview>
                   <Blob
-                    onClick={() => changeColors(i)}
                     c1={i.color1}
                     c2={i.color2}
                     frames={frames}
