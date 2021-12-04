@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import {
   SliderBar,
@@ -24,51 +24,53 @@ const Slider = ({
     updateValue(element, control, val);
   };
 
-  return (
-    <SliderBar>
-      <Info>
-        <LabelName>{label}</LabelName>
-        <Value>{values[0]}</Value>
-      </Info>
-      <Range
-        step={step}
-        min={min}
-        max={max}
-        values={values}
-        onChange={handleChange}
-        renderTrack={({ props, children }) => (
-          <div
-            onMouseDown={props.onMouseDown}
-            onTouchStart={props.onTouchStart}
-            className="wrapper"
-            role="button"
-          >
+  return useMemo(() => {
+    return (
+      <SliderBar>
+        <Info>
+          <LabelName>{label}</LabelName>
+          <Value>{values[0]}</Value>
+        </Info>
+        <Range
+          step={step}
+          min={min}
+          max={max}
+          values={values}
+          onChange={handleChange}
+          renderTrack={({ props, children }) => (
             <div
-              ref={props.ref}
-              className="track"
-              style={{
-                background: getTrackBackground({
-                  values,
-                  colors: [colors.accent, '#ccc'],
-                  min,
-                  max,
-                }),
-              }}
+              onMouseDown={props.onMouseDown}
+              onTouchStart={props.onTouchStart}
+              className="wrapper"
+              role="button"
             >
-              {children}
+              <div
+                ref={props.ref}
+                className="track"
+                style={{
+                  background: getTrackBackground({
+                    values,
+                    colors: [colors.accent, '#ccc'],
+                    min,
+                    max,
+                  }),
+                }}
+              >
+                {children}
+              </div>
             </div>
-          </div>
-        )}
-        renderThumb={({ props, isDragged }) => (
-          <div
-            {...props}
-            className="thumb"
-          >
-          </div>
-        )}
-      />
-    </SliderBar>
-  );
+          )}
+          renderThumb={({ props, isDragged }) => (
+            <div
+              {...props}
+              className="thumb"
+            >
+            </div>
+          )}
+        />
+      </SliderBar>
+    );
+  }, [values[0]]);
 };
 
 export default Slider;

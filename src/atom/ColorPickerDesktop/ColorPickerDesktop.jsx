@@ -1,5 +1,5 @@
 import React, {
-  useState, useRef, useContext, useEffect,
+  useState, useRef, useContext, useEffect, useMemo,
 } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
 import { Portal, PortalWithState } from 'react-portal';
@@ -34,56 +34,58 @@ const ColorPickerDesktop = ({
     setShow(false);
   };
 
-  return (
-    <>
-      <Title>{label}</Title>
-      <ColorPickerWrapper ref={ref}>
-        <TogglePickerButton
-          style={{
-            backgroundColor: value,
-          }}
-          disable
-          onClick={() => setShow(!show)}
-        />
-        <Symbol>#</Symbol>
-        <HexColorInput
-          color={value}
-          onClick={!isMedium ? open : null}
-          onChange={changeColor}
-        />
-
-        {/* On Medium Screen */}
-        {
-          isMedium && show
-          && (
-          <HexColorPicker
+  return useMemo(() => {
+    return (
+      <>
+        <Title>{label}</Title>
+        <ColorPickerWrapper ref={ref}>
+          <TogglePickerButton
+            style={{
+              backgroundColor: value,
+            }}
+            disable
+            onClick={() => setShow(!show)}
+          />
+          <Symbol>#</Symbol>
+          <HexColorInput
             color={value}
+            onClick={!isMedium ? open : null}
             onChange={changeColor}
           />
-          )
-        }
-      </ColorPickerWrapper>
 
-      {!isMedium && show && (
-        <Portal>
-          <div
-            ref={mobileRef}
-            style={{
-              position: 'absolute',
-              right: 0,
-              bottom: '22%',
-              zIndex: 9999,
-            }}
-          >
+          {/* On Medium Screen */}
+          {
+            isMedium && show
+            && (
             <HexColorPicker
               color={value}
               onChange={changeColor}
             />
-          </div>
-        </Portal>
-      )}
-    </>
-  );
+            )
+          }
+        </ColorPickerWrapper>
+
+        {!isMedium && show && (
+          <Portal>
+            <div
+              ref={mobileRef}
+              style={{
+                position: 'absolute',
+                right: 0,
+                bottom: '22%',
+                zIndex: 9999,
+              }}
+            >
+              <HexColorPicker
+                color={value}
+                onChange={changeColor}
+              />
+            </div>
+          </Portal>
+        )}
+      </>
+    );
+  }, [value, show]);
 };
 
 export default ColorPickerDesktop;
