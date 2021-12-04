@@ -28,7 +28,8 @@ export const ColorPickerWrapper = styled.div`
       border-white 
       rounded-xl 
       text-xl 
-      w-full 
+      w-5/12
+      md:w-full 
       px-8  
       focus:border-accent 
       outline-none
