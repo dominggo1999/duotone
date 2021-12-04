@@ -11,6 +11,7 @@ import PanelWrapper from '../PanelWrapper/PanelWrapper';
 import Brand from '../Brand/Brand';
 import useSizes from '../../hooks/useSizes';
 import SettingsMobile from '../SettingsMobile/SettingsMobile';
+import Export from '../Export/Export';
 
 // Panel
 import Template from '../Template/Template';
@@ -84,7 +85,8 @@ const Sidebar = () => {
             <h2>Any content 3</h2>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 4</h2>
+            {/* Just for testing */}
+            <Export />
           </TabPanel>
         </PanelWrapper>
       </Tabs>

@@ -64,15 +64,6 @@ const Settings = () => {
         control="opacity"
       />
       <Slider
-        step={0.01}
-        min={0.5}
-        max={1.3}
-        values={[image.brightness]}
-        label="Brightness"
-        element="image"
-        control="brightness"
-      />
-      <Slider
         step={0.5}
         min={0}
         max={10}
@@ -80,6 +71,15 @@ const Settings = () => {
         label="Blur"
         element="image"
         control="blur"
+      />
+      <Slider
+        step={0.01}
+        min={0.5}
+        max={1.3}
+        values={[image.brightness]}
+        label="Brightness"
+        element="image"
+        control="brightness"
       />
       <Slider
         step={0.01}

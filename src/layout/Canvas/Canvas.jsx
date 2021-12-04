@@ -46,7 +46,10 @@ const Canvas = () => {
 
   return (
     <CanvasWrapper>
-      <ImageWrapper style={imageWrapperStyle}>
+      <ImageWrapper
+        id="final-image"
+        style={imageWrapperStyle}
+      >
         <Image
           src={image.src}
           style={imageStyle}
