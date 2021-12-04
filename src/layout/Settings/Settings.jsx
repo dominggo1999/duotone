@@ -3,6 +3,7 @@ import Slider from '../../atom/Slider/Slider';
 import { SettingsWrapper } from './Settings.style';
 import { CanvasContext } from '../../context/Canvas.context';
 import ColorPickerDesktop from '../../atom/ColorPickerDesktop/ColorPickerDesktop';
+import BlenmodePicker from '../../atom/BlenmodePicker/BlenmodePicker';
 
 const Settings = () => {
   const {
@@ -17,11 +18,23 @@ const Settings = () => {
         element="foreground"
         control="bg"
       />
+      <BlenmodePicker
+        label="Image Blend Mode"
+        value={image.blendMode}
+        element="image"
+        control="blendMode"
+      />
       <ColorPickerDesktop
         label="Background Color"
         value={wrapper.bg}
         element="wrapper"
         control="bg"
+      />
+      <BlenmodePicker
+        label="Background Blend Mode"
+        value={foreground.blendMode}
+        element="foreground"
+        control="blendMode"
       />
       <Slider
         step={0.01}
