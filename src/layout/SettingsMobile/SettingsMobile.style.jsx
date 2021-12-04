@@ -7,38 +7,29 @@ import {
   TabPanel as UnstyledTabPanel,
 } from 'react-tabs';
 
-export const SidebarWrapper = styled.div`
-  ${tw` 
-    min-h-[50%]
-    md:h-full 
-    md:min-w-[350px]
-    bg-black 
-    pt-5
-    md:py-5 
-    flex 
-    flex-col
+export const SettingsMobileWrapper = styled.div`
+  ${tw`  
+    h-full 
+    absolute 
+    inset-0 
   `}
 `;
 
 export const Tabs = styled(UnstyledTabs)`
-  ${tw`
-    h-full
+  ${tw` 
+    h-full 
     flex 
-    flex-col-reverse 
-    justify-between
-    md:flex-col
-    md:justify-start 
+    flex-col-reverse
+    justify-between 
+    px-4
   `}
 `;
 
 export const TabList = styled(UnstyledTabList)`
-  ${tw`
-    flex 
-    justify-between 
-    py-2
-    md:py-5
-    px-4 
-    md:px-5
+  ${tw`   
+    flex   
+    justify-between  
+    bg-black
   `}
 `;
 
@@ -52,34 +43,33 @@ export const Tab = styled(UnstyledTab).attrs({
     justify-center 
     items-center
     text-center 
-    w-[60px]
-    h-[60px]
     rounded-lg 
     cursor-pointer 
-    p-2
+    p-2  
   `}
 
+  width: 60px; 
+  height: 60px; 
   transition: all ease-in-out 100ms ;
 
   svg{
-    ${tw`text-xl mb-2`}
+    ${tw`text-xl`}
   }
 
   &.selected {
-    ${tw`bg-secondary `}
+    ${tw`text-accent`}
   }
 `;
 
 export const TabPanel = styled(UnstyledTabPanel).attrs({ selectedClassName: 'selected' })`
   ${tw`
-    hidden 
+    hidden
   `}
 
   &.selected {
-    ${tw`  
-      block 
-      px-4 
-      md:px-5 
+    ${tw` 
+      block  
+      h-full 
     `}
   }
 `;
@@ -88,9 +78,3 @@ Tab.tabsRole = 'Tab';
 Tabs.tabsRole = 'Tabs';
 TabPanel.tabsRole = 'TabPanel';
 TabList.tabsRole = 'TabList';
-
-export const TabLabel = styled.span`
-  ${tw`
-    text-[12px]
-  `}
-`;

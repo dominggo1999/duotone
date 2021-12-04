@@ -9,6 +9,8 @@ import {
 } from './Sidebar.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
 import Brand from '../Brand/Brand';
+import useSizes from '../../hooks/useSizes';
+import SettingsMobile from '../SettingsMobile/SettingsMobile';
 
 // Panel
 import Template from '../Template/Template';
@@ -38,20 +40,29 @@ const icons = [
 ];
 
 const Sidebar = () => {
+  const { isMedium } = useSizes();
+
+  const watchIndex = (index) => {
+    if(index === 1) {
+      console.log('yeah');
+    }
+  };
+
   return (
     <SidebarWrapper>
       {/* Brand */}
       <Brand />
 
-      {/* Tab Navigation */}
-      <Tabs>
-        {/* Tab List */}
+      <Tabs
+        defaultIndex={1}
+        onSelect={watchIndex}
+      >
+        {/* Tab Navigation */}
         <TabList>
           {
             icons.map((i) => {
               const { icon: Icon, name } = i;
               return (
-              // Tab Item
                 <Tab key={i.id}>
                   <Icon />
                   <TabLabel>{name}</TabLabel>
@@ -61,12 +72,13 @@ const Sidebar = () => {
           }
         </TabList>
 
+        {/* Tab Item */}
         <PanelWrapper>
           <TabPanel>
             <Template />
           </TabPanel>
           <TabPanel>
-            <Settings />
+            {isMedium ? <Settings /> : <SettingsMobile /> }
           </TabPanel>
           <TabPanel>
             <h2>Any content 3</h2>

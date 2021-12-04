@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import {
   SliderBar,
@@ -7,15 +7,23 @@ import {
   Value,
 } from './Slider.style';
 import { colors } from '../../constants/colors';
+import { CanvasContext } from '../../context/Canvas.context';
 
 const Slider = ({
   step,
   min,
   max,
   values,
-  onChange,
   label,
+  element,
+  control,
 }) => {
+  const { updateValue } = useContext(CanvasContext);
+
+  const handleChange = (val) => {
+    updateValue(element, control, val);
+  };
+
   return (
     <SliderBar>
       <Info>
@@ -27,7 +35,7 @@ const Slider = ({
         min={min}
         max={max}
         values={values}
-        onChange={onChange}
+        onChange={handleChange}
         renderTrack={({ props, children }) => (
           <div
             onMouseDown={props.onMouseDown}

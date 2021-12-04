@@ -2,7 +2,7 @@ import tw, { styled } from 'twin.macro';
 
 export const Panel = styled.div`
   ${tw`
-    h-full 
+    h-full   
   `}
 
   /* Hide default scrollbar and use plugin */

@@ -4,7 +4,7 @@ import React, { useEffect, useReducer, createContext } from 'react';
 const initialState = {
   image: {
     blendMode: 'multiply',
-    src: 'https://c.tenor.com/ubkgsEHmfe4AAAAC/anime-aesthetic.gif',
+    src: 'https://c.tenor.com/q8U6frZyn_0AAAAC/kato.gif',
     opacity: 80,
     blur: 0,
     brightness: 1,

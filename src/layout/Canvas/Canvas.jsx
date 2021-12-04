@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import {
   CanvasWrapper,
   ImageWrapper,
@@ -7,6 +6,7 @@ import {
   Image,
 } from './Canvas.style';
 import { CanvasContext } from '../../context/Canvas.context';
+import useSizes from '../../hooks/useSizes';
 
 const Canvas = () => {
   // VITE BUG, need to do this to prevent error on development
@@ -16,6 +16,7 @@ const Canvas = () => {
   const {
     wrapper, image, foreground, updateValue,
   } = useContext(CanvasContext) || {};
+  const { isMedium } = useSizes();
 
   // VITE BUG, need to do this to prevent error on development
   if(!CanvasContext) {
@@ -29,12 +30,13 @@ const Canvas = () => {
     padding: `${wrapper.spacing}px`,
   };
 
-  const isMedium = useMediaQuery({ query: '(min-width: 768px)' });
   const imageStyle = {
     opacity: `${image.opacity}%`,
     filter: `grayscale(100%) contrast(${image.contrast}) blur(${image.blur}px) brightness(${image.brightness})`,
     mixBlendMode: `${image.blendMode}`,
-    maxHeight: isMedium ? `calc(100vh - 30px - calc(${wrapper.spacing}px * 2))` : `calc(50vh - 30px - calc(${wrapper.spacing}px * 2))`,
+    maxHeight: isMedium
+      ? `calc(100vh - 30px - calc(${wrapper.spacing}px * 2))`
+      : `calc(50vh - 30px - calc(${wrapper.spacing}px * 2))`,
   };
 
   const foregroundStyle = {
