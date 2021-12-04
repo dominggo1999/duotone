@@ -53,13 +53,64 @@ const SettingsMobile = () => {
         </TabList>
         <PanelWrapper>
           <TabPanel>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, in provident doloribus fuga, suscipit deserunt ea eum, aliquid at maxime officia quis quae maiores amet tempora error ducimus dolores. Cumque facilis porro sequi maiores, id veritatis suscipit provident cum libero! Mollitia possimus asperiores assumenda dolor a voluptatibus perspiciatis corporis facilis adipisci maiores sed delectus illum, dolore debitis deserunt quasi vel, non eum similique error aliquam! Minima, distinctio velit? Voluptatibus quos delectus deserunt maxime eos provident pariatur dolores enim non a quae mollitia, illo repellat ad ut aut iure. Magni officia fuga adipisci laudantium corporis cum ab tempora veniam perspiciatis nisi?
+            <Slider
+              step={0.01}
+              min={0.2}
+              max={1.5}
+              values={[wrapper.scale]}
+              label="Zoom"
+              element="wrapper"
+              control="scale"
+            />
+            <Slider
+              step={1}
+              min={0}
+              max={100}
+              values={[wrapper.spacing]}
+              label="Spacing"
+              element="wrapper"
+              control="spacing"
+            />
           </TabPanel>
           <TabPanel>
-            panel2
+            <Slider
+              step={1}
+              min={0}
+              max={100}
+              values={[image.opacity]}
+              label="Image Opacity"
+              element="image"
+              control="opacity"
+            />
+            <Slider
+              step={0.5}
+              min={0}
+              max={10}
+              values={[image.blur]}
+              label="Blur"
+              element="image"
+              control="blur"
+            />
           </TabPanel>
           <TabPanel>
-            panel3
+            <Slider
+              step={0.01}
+              min={0.5}
+              max={1.3}
+              values={[image.brightness]}
+              label="Brightness"
+              element="image"
+              control="brightness"
+            />
+            <Slider
+              step={0.01}
+              min={0.5}
+              max={2}
+              values={[image.contrast]}
+              label="Contrast"
+              element="image"
+              control="contrast"
+            />
           </TabPanel>
           <TabPanel>
             panel4
