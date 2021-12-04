@@ -126,6 +126,7 @@ const SettingsMobile = () => {
               element="wrapper"
               control="bg"
             />
+            <br />
           </TabPanel>
         </PanelWrapper>
       </Tabs>

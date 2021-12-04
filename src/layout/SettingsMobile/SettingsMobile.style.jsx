@@ -21,7 +21,7 @@ export const Tabs = styled(UnstyledTabs)`
     flex 
     flex-col-reverse
     justify-between 
-    px-4
+    px-4 
   `}
 `;
 

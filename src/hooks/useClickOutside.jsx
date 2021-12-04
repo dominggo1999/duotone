@@ -1,17 +1,36 @@
 import React, { useEffect } from 'react';
+import useSizes from './useSizes';
 
-const useClickOutside = (ref, handler) => {
+const useClickOutside = (ref, handler, secondRef) => {
+  const { isMedium } = useSizes();
+
   useEffect(
     () => {
       const listener = (event) => {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) {
+        const validate = secondRef ? !secondRef.current
+        || secondRef.current.contains(event.target) : null;
+
+        if (
+          isMedium
+          && (!ref.current
+          || ref.current.contains(event.target)
+          )) {
           return;
         }
+
+        if (
+          !isMedium && (!ref.current
+          || ref.current.contains(event.target)
+          || validate)
+        ) {
+          return;
+        }
+
         handler(event);
       };
       document.addEventListener('mousedown', listener);
       document.addEventListener('touchstart', listener);
+
       return () => {
         document.removeEventListener('mousedown', listener);
         document.removeEventListener('touchstart', listener);
@@ -23,7 +42,7 @@ const useClickOutside = (ref, handler) => {
     // ... callback/cleanup to run every render. It's not a big deal ...
     // ... but to optimize you can wrap handler in useCallback before ...
     // ... passing it into this hook.
-    [ref, handler],
+    [ref, secondRef, handler],
   );
 };
 

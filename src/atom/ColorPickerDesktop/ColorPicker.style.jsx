@@ -6,7 +6,7 @@ export const ColorPickerWrapper = styled.div`
     relative  
     flex 
     mb-5 
-    h-[40px]  
+    h-[40px]   
   `}
 
   .react-colorful{
@@ -14,7 +14,7 @@ export const ColorPickerWrapper = styled.div`
       absolute 
       z-50 
       top-full 
-      mt-2 
+      mt-2  
     `}
   }
 
@@ -63,4 +63,16 @@ export const Title = styled.div`
     text-2xl  
     mb-2
   `}
+`;
+
+export const MobilePicker = styled.div`
+  .react-colorful {
+    ${tw`
+      absolute 
+      z-[9999]
+    `}
+
+    bottom: 22%;
+    right: 0;
+  }
 `;
