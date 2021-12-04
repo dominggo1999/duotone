@@ -1,0 +1,66 @@
+import tw, { styled } from 'twin.macro';
+import { HexColorPicker as UnstyledPicker, HexColorInput as UnstyledInput } from 'react-colorful';
+
+export const ColorPickerWrapper = styled.div`
+  ${tw`
+    relative  
+    flex 
+    mb-5 
+    h-[40px]  
+  `}
+
+  .react-colorful{
+    ${tw`
+      absolute 
+      z-50 
+      top-full 
+      mt-2 
+    `}
+  }
+
+  input {
+    ${tw`
+      h-full   
+      bg-transparent 
+      px-2 
+      py-2 
+      border 
+      border-white 
+      rounded-xl 
+      text-xl 
+      w-full 
+      px-8  
+      focus:border-accent 
+      outline-none
+    `}
+  }
+
+`;
+
+export const Symbol = styled.span`
+  ${tw`
+    absolute 
+    left-[60px]
+    text-2xl  
+    text-accent
+  `}
+
+  top: 50%; 
+  transform: translateY(-50%);
+`;
+
+export const TogglePickerButton = styled.button`
+  ${tw`
+    min-w-[40px]
+    h-full  
+    rounded-full 
+    mr-2
+  `}
+`;
+
+export const Title = styled.div`
+  ${tw`
+    text-2xl  
+    mb-2
+  `}
+`;

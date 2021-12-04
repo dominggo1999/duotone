@@ -2,14 +2,27 @@ import React, { useContext } from 'react';
 import Slider from '../../atom/Slider/Slider';
 import { SettingsWrapper } from './Settings.style';
 import { CanvasContext } from '../../context/Canvas.context';
+import ColorPickerDesktop from '../../atom/ColorPickerDesktop/ColorPickerDesktop';
 
 const Settings = () => {
   const {
-    image, wrapper,
+    image, wrapper, foreground,
   } = useContext(CanvasContext);
 
   return (
     <SettingsWrapper>
+      <ColorPickerDesktop
+        label="Image Color"
+        value={foreground.bg}
+        element="foreground"
+        control="bg"
+      />
+      <ColorPickerDesktop
+        label="Background Color"
+        value={wrapper.bg}
+        element="wrapper"
+        control="bg"
+      />
       <Slider
         step={0.01}
         min={0.2}

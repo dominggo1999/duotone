@@ -6,6 +6,7 @@ import {
   Tabs, TabList, Tab, TabPanel, SettingsMobileWrapper,
 } from './SettingsMobile.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
+import ColorPickerDesktop from '../../atom/ColorPickerDesktop/ColorPickerDesktop';
 
 const icons = [
   {
@@ -32,7 +33,7 @@ const icons = [
 
 const SettingsMobile = () => {
   const {
-    image, wrapper,
+    image, wrapper, foreground,
   } = useContext(CanvasContext);
 
   return (
@@ -113,7 +114,18 @@ const SettingsMobile = () => {
             />
           </TabPanel>
           <TabPanel>
-            panel4
+            <ColorPickerDesktop
+              label="Image Color"
+              value={foreground.bg}
+              element="foreground"
+              control="bg"
+            />
+            <ColorPickerDesktop
+              label="Background Color"
+              value={wrapper.bg}
+              element="wrapper"
+              control="bg"
+            />
           </TabPanel>
         </PanelWrapper>
       </Tabs>

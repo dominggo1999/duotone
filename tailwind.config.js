@@ -25,6 +25,9 @@ module.exports = {
       fontFamily: {
         primary: ['Fira Sans Extra Condensed', 'sans-serif'],
       },
+      borderColor: {
+        accent,
+      },
     },
   },
   plugins: [],
