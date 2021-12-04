@@ -16,8 +16,6 @@ const BlenmodePicker = ({
   };
 
   return useMemo(() => {
-    console.log('Gegewa');
-
     return (
       <BlenmodePickerWrapper>
         <Title>

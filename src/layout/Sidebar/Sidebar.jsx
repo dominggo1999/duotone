@@ -43,20 +43,13 @@ const icons = [
 const Sidebar = () => {
   const { isMedium } = useSizes();
 
-  const watchIndex = (index) => {
-    if(index === 1) {
-      console.log('yeah');
-    }
-  };
-
   return (
     <SidebarWrapper>
       {/* Brand */}
       <Brand />
 
       <Tabs
-        defaultIndex={1}
-        onSelect={watchIndex}
+        defaultIndex={0}
       >
         {/* Tab Navigation */}
         <TabList>

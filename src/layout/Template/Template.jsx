@@ -8,69 +8,7 @@ import {
   Blob,
 } from './Template.style';
 import { CanvasContext } from '../../context/Canvas.context';
-
-const colors = [
-  {
-    color1: '#00007E',
-    color2: '#6AFF7F',
-    name: 'Spotify',
-  },
-  {
-    color1: '#682218',
-    color2: '#F8BE3D',
-    name: 'Yeah',
-  },
-  {
-    color1: '#290900',
-    color2: '#FFEFB3',
-    name: 'Brownies',
-  },
-  {
-    color1: '#8682D9',
-    color2: '#DEFCFE',
-    name: 'RedBlack',
-  },
-  {
-    color1: '#4693AA',
-    color2: '#EF009E',
-    name: 'RedBlack',
-  },
-  {
-    color1: '#000000',
-    color2: '#C35655',
-    name: 'RedBlack',
-  },
-  {
-    color1: '#00007E',
-    color2: '#6AFF7F',
-    name: 'Spotify',
-  },
-  {
-    color1: '#682218',
-    color2: '#F8BE3D',
-    name: 'Yeah',
-  },
-  {
-    color1: '#290900',
-    color2: '#FFEFB3',
-    name: 'Brownies',
-  },
-  {
-    color1: '#8682D9',
-    color2: '#DEFCFE',
-    name: 'RedBlack',
-  },
-  {
-    color1: '#4693AA',
-    color2: '#EF009E',
-    name: 'RedBlack',
-  },
-  {
-    color1: '#000000',
-    color2: '#C35655',
-    name: 'RedBlack',
-  },
-];
+import { presets } from '../../config/presets';
 
 const generateBorder = (s1, s2) => {
   return `${s2 + Math.ceil(Math.random() * (s1 - s2))}%`;
@@ -105,7 +43,7 @@ const Template = () => {
     return null;
   }
   const {
-    updateValue,
+    usePreset, state,
   } = useContext(CanvasContext) || {};
 
   // VITE BUG, need to do this to prevent error on development
@@ -113,29 +51,30 @@ const Template = () => {
     return null;
   }
 
-  const changeColors = (theme) => {
-    updateValue('wrapper', 'bg', theme.color2);
-    updateValue('foreground', 'bg', theme.color1);
+  const changeColors = (preset) => {
+    usePreset(preset);
   };
 
   return useMemo(() => {
     return (
       <TemplateWrapper>
         {
-          colors && colors.map((i) => {
+          presets && presets.map((i) => {
+            const { foreground, wrapper } = i.settings;
+
             const frames = createKeyFrames();
             const scaleTime = 10 + Math.ceil(Math.random() * 20);
             const rotateTime = 30 + Math.ceil(Math.random() * 100);
 
             return (
               <TemplateItem
-                onClick={() => changeColors(i)}
+                onClick={() => changeColors(i.settings)}
                 key={short.generate()}
               >
                 <ColorPreview>
                   <Blob
-                    c1={i.color1}
-                    c2={i.color2}
+                    c1={foreground.bg}
+                    c2={wrapper.bg}
                     frames={frames}
                     scaleTime={scaleTime}
                     rotateTime={rotateTime}
@@ -150,7 +89,7 @@ const Template = () => {
         }
       </TemplateWrapper>
     );
-  }, [colors]);
+  }, [state]);
 };
 
 export default Template;

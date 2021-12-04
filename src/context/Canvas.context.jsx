@@ -1,10 +1,17 @@
 /* eslint-disable no-case-declarations */
-import React, { useEffect, useReducer, createContext } from 'react';
+import React, { useReducer, createContext } from 'react';
+import produce from 'immer';
+import { presets } from '../config/presets';
+
+const index = presets.map((i) => i.name).indexOf('spotify');
+
+const spotify = presets[index].settings;
+spotify.image.src = 'https://picsum.photos/1000?image=874';
 
 const initialState = {
   image: {
     blendMode: 'multiply',
-    src: 'https://c.tenor.com/q8U6frZyn_0AAAAC/kato.gif',
+    src: 'https://picsum.photos/1000?image=874',
     opacity: 80,
     blur: 0,
     brightness: 1,
@@ -17,39 +24,35 @@ const initialState = {
   wrapper: {
     spacing: '15',
     scale: 1,
-    bg: ' #08b76c',
+    bg: '#08b76c',
   },
 };
 
 export const CanvasContext = createContext();
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'UPDATE_VALUE':
-      const newValue = {
-        [action.payload.property]: action.payload.value,
-      };
+const reducer = (state = spotify, action) => {
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case 'UPDATE_VALUE':
+        draft[action.payload.element][action.payload.property] = action.payload.value;
+        return;
 
-      return {
-        ...state,
-        [action.payload.element]: {
-          ...state[action.payload.element],
-          ...newValue,
-        },
-      };
-    case 'USE_TEMPLATE':
-      return {
-        ...state,
-        ...action.payload,
-      };
+      case 'USE_PRESET':
+        draft.image = action.payload.image;
+        draft.foreground = action.payload.foreground;
+        draft.wrapper = action.payload.wrapper;
 
-    default:
-      return initialState;
-  }
+        draft.image = { ...draft.image, src: state.image.src };
+        return;
+
+      default:
+        return spotify;
+    }
+  });
 };
 
 const CanvasProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, spotify);
 
   const updateValue = (element, property, value) => {
     dispatch({
@@ -62,9 +65,9 @@ const CanvasProvider = ({ children }) => {
     });
   };
 
-  const useTemplate = (template) => {
+  const usePreset = (template) => {
     dispatch({
-      type: 'USE_TEMPLATE',
+      type: 'USE_PRESET',
       payload: template,
     });
   };
@@ -72,7 +75,7 @@ const CanvasProvider = ({ children }) => {
   const value = {
     ...state,
     updateValue,
-    useTemplate,
+    usePreset,
   };
 
   return (

@@ -22,7 +22,8 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   ${tw`
-    max-w-full
+    max-w-full 
+    z-[1]
   `}
 `;
 

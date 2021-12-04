@@ -75,8 +75,8 @@ const SettingsMobile = () => {
             />
             <BlenmodePicker
               label="Background Blend Mode"
-              value={foreground.blendMode}
-              element="foreground"
+              value={image.blendMode}
+              element="image"
               control="blendMode"
             />
           </TabPanel>
