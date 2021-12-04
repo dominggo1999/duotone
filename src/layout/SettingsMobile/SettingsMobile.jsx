@@ -7,6 +7,7 @@ import {
 } from './SettingsMobile.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
 import ColorPickerDesktop from '../../atom/ColorPickerDesktop/ColorPickerDesktop';
+import BlenmodePicker from '../../atom/BlenmodePicker/BlenmodePicker';
 
 const icons = [
   {
@@ -53,6 +54,32 @@ const SettingsMobile = () => {
             }
         </TabList>
         <PanelWrapper>
+          <TabPanel>
+            <ColorPickerDesktop
+              label="Image Color"
+              value={foreground.bg}
+              element="foreground"
+              control="bg"
+            />
+            <BlenmodePicker
+              label="Image Blend Mode"
+              value={image.blendMode}
+              element="image"
+              control="blendMode"
+            />
+            <ColorPickerDesktop
+              label="Background Color"
+              value={wrapper.bg}
+              element="wrapper"
+              control="bg"
+            />
+            <BlenmodePicker
+              label="Background Blend Mode"
+              value={foreground.blendMode}
+              element="foreground"
+              control="blendMode"
+            />
+          </TabPanel>
           <TabPanel>
             <Slider
               step={0.01}
@@ -112,21 +139,6 @@ const SettingsMobile = () => {
               element="image"
               control="contrast"
             />
-          </TabPanel>
-          <TabPanel>
-            <ColorPickerDesktop
-              label="Image Color"
-              value={foreground.bg}
-              element="foreground"
-              control="bg"
-            />
-            <ColorPickerDesktop
-              label="Background Color"
-              value={wrapper.bg}
-              element="wrapper"
-              control="bg"
-            />
-            <br />
           </TabPanel>
         </PanelWrapper>
       </Tabs>

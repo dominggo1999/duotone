@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useMemo, useContext } from 'react';
 import Select from 'react-select';
 import { BlenmodePickerWrapper, Title } from './BlenmodePicker.style';
 import { blendModes } from '../../constants/blenModes';
@@ -12,25 +12,27 @@ const BlenmodePicker = ({
   const defaultValue = blendModes[index];
 
   const handleChange = (e) => {
-    console.log(element, control, e.value);
-
     updateValue(element, control, e.value);
   };
 
-  return (
-    <BlenmodePickerWrapper>
-      <Title>
-        {label}
-      </Title>
-      <Select
-        defaultValue={defaultValue}
-        onChange={handleChange}
-        options={blendModes}
-        isSearchable={false}
-        classNamePrefix="react-select"
-      />
-    </BlenmodePickerWrapper>
-  );
+  return useMemo(() => {
+    console.log('Gegewa');
+
+    return (
+      <BlenmodePickerWrapper>
+        <Title>
+          {label}
+        </Title>
+        <Select
+          defaultValue={defaultValue}
+          onChange={handleChange}
+          options={blendModes}
+          isSearchable={false}
+          classNamePrefix="react-select"
+        />
+      </BlenmodePickerWrapper>
+    );
+  }, [value]);
 };
 
 export default BlenmodePicker;
