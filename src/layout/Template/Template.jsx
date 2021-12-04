@@ -63,8 +63,8 @@ const Template = () => {
             const { foreground, wrapper } = i.settings;
 
             const frames = createKeyFrames();
-            const scaleTime = 10 + Math.ceil(Math.random() * 20);
-            const rotateTime = 30 + Math.ceil(Math.random() * 100);
+            const scaleTime = 10 + Math.ceil(Math.random() * 10);
+            const rotateTime = 30 + Math.ceil(Math.random() * 40);
 
             return (
               <TemplateItem

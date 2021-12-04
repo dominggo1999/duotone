@@ -115,6 +115,27 @@ export const presets = [
     },
   },
   {
+    name: 'ig',
+    settings: {
+      image: {
+        blendMode: 'multiply',
+        opacity: [100],
+        blur: 0,
+        brightness: 1,
+        contrast: 1,
+      },
+      foreground: {
+        bg: '#0A3463',
+        blendMode: 'lighten',
+      },
+      wrapper: {
+        spacing: '15',
+        scale: 1,
+        bg: '#EA6F31',
+      },
+    },
+  },
+  {
     name: 'red',
     settings: {
       image: {

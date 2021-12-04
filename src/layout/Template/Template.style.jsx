@@ -112,7 +112,7 @@ export const Blob = styled.div`
   }) => {
     return css`
       background-image: linear-gradient(${c1},${c2});
-      animation: ${morph} 20s linear infinite,${blobScale} ${scaleTime}s linear infinite,
+      animation: ${morph} 10s linear infinite,${blobScale} ${scaleTime}s linear infinite,
       ${rotate} ${rotateTime}s linear infinite  ;
     `;
   }}
