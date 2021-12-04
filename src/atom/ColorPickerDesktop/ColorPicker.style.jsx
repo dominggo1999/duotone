@@ -42,7 +42,8 @@ export const Symbol = styled.span`
     absolute 
     left-[60px]
     text-2xl  
-    text-accent
+    text-accent 
+    select-none
   `}
 
   top: 50%; 
