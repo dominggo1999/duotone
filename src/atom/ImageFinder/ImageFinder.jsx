@@ -73,7 +73,7 @@ const ImageFinder = () => {
                   onClick={() => useImage(image.src.large)}
                   key={image.id}
                 >
-                  <LazyLoadImage
+                  <img
                     src={image.src.small}
                     effect="blur"
                     alt={image.photographer}
