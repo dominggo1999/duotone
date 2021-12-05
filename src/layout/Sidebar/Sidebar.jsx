@@ -12,6 +12,7 @@ import Brand from '../Brand/Brand';
 import useSizes from '../../hooks/useSizes';
 import SettingsMobile from '../SettingsMobile/SettingsMobile';
 import Export from '../Export/Export';
+import ImagePicker from '../ImagePicker/ImagePicker';
 
 // Panel
 import Template from '../Template/Template';
@@ -49,7 +50,7 @@ const Sidebar = () => {
       <Brand />
 
       <Tabs
-        defaultIndex={0}
+        defaultIndex={2}
       >
         {/* Tab Navigation */}
         <TabList>
@@ -75,7 +76,7 @@ const Sidebar = () => {
             {isMedium ? <Settings /> : <SettingsMobile /> }
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3</h2>
+            <ImagePicker />
           </TabPanel>
           <TabPanel>
             {/* Just for testing */}

@@ -5,32 +5,17 @@ import { presets } from '../config/presets';
 
 const index = presets.map((i) => i.name).indexOf('spotify');
 
-const spotify = presets[index].settings;
-spotify.image.src = 'https://picsum.photos/1000?image=874';
+const initialPreset = presets[index].settings;
+initialPreset.image.src = 'https://picsum.photos/1000?image=874';
 
 const initialState = {
-  image: {
-    blendMode: 'multiply',
-    src: 'https://picsum.photos/1000?image=874',
-    opacity: 80,
-    blur: 0,
-    brightness: 1,
-    contrast: 1,
-  },
-  foreground: {
-    bg: '#0a3463',
-    blendMode: 'lighten',
-  },
-  wrapper: {
-    spacing: '15',
-    scale: 1,
-    bg: '#08b76c',
-  },
+  ...initialPreset,
+  clientImageName: '',
 };
 
 export const CanvasContext = createContext();
 
-const reducer = (state = spotify, action) => {
+const reducer = (state = initialState, action) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case 'UPDATE_VALUE':
@@ -45,14 +30,18 @@ const reducer = (state = spotify, action) => {
         draft.image = { ...draft.image, src: state.image.src };
         return;
 
+      case 'UPDATE_CLIENT_IMAGE_NAME':
+        draft.clientImageName = action.payload;
+        return;
+
       default:
-        return spotify;
+        return initialState;
     }
   });
 };
 
 const CanvasProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, spotify);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const updateValue = (element, property, value) => {
     dispatch({
@@ -72,10 +61,18 @@ const CanvasProvider = ({ children }) => {
     });
   };
 
+  const updateClientImageName = (fileName) => {
+    dispatch({
+      type: 'UPDATE_CLIENT_IMAGE_NAME',
+      payload: fileName,
+    });
+  };
+
   const value = {
     ...state,
     updateValue,
     usePreset,
+    updateClientImageName,
   };
 
   return (
