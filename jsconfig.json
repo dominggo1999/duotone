@@ -3,7 +3,12 @@
     "plugins": [
       {
         "name": "typescript-styled-plugin",
-        "validate": false
+        "validate": false,
+        "tags": [
+          "styled",
+          "css",
+          "sty"
+        ]
       }
     ]
   }

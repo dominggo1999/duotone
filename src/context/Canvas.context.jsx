@@ -11,6 +11,7 @@ initialPreset.image.src = 'https://picsum.photos/1000?image=874';
 const initialState = {
   ...initialPreset,
   clientImageName: '',
+  pexelsImages: [],
 };
 
 export const CanvasContext = createContext();
@@ -32,6 +33,10 @@ const reducer = (state = initialState, action) => {
 
       case 'UPDATE_CLIENT_IMAGE_NAME':
         draft.clientImageName = action.payload;
+        return;
+
+      case 'SAVE_PEXELS_RESULTS':
+        draft.pexelsImages = action.payload;
         return;
 
       default:
@@ -68,11 +73,19 @@ const CanvasProvider = ({ children }) => {
     });
   };
 
+  const savePexelsResults = (photos) => {
+    dispatch({
+      type: 'SAVE_PEXELS_RESULTS',
+      payload: photos,
+    });
+  };
+
   const value = {
     ...state,
     updateValue,
     usePreset,
     updateClientImageName,
+    savePexelsResults,
   };
 
   return (

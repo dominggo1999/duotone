@@ -35,8 +35,9 @@ export const TabList = styled(UnstyledTabList)`
   ${tw`
     flex 
     justify-between 
-    py-2
-    md:py-5
+    py-2 
+    md:py-0
+    md:pt-5
     px-4 
     md:px-5
   `}

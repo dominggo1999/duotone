@@ -29,10 +29,10 @@ export const Tabs = styled(UnstyledTabs)`
 
 export const TabList = styled(UnstyledTabList)`
   ${tw`
-    flex 
-    py-2
-    md:py-5
+    flex  
   `}
+
+  gap: calc((100% - 240px)/3);
 `;
 
 export const Tab = styled(UnstyledTab).attrs({
@@ -49,7 +49,8 @@ export const Tab = styled(UnstyledTab).attrs({
     h-[60px]
     rounded-lg 
     cursor-pointer 
-    p-2
+    p-2 
+   
   `}
 
   transition: all ease-in-out 100ms ;
@@ -59,7 +60,7 @@ export const Tab = styled(UnstyledTab).attrs({
   }
 
   &.selected {
-    ${tw`bg-secondary `}
+    ${tw`text-accent bg-black `}
   }
 `;
 

@@ -6,24 +6,25 @@ import {
   ImagePickerWrapper, TabLabel,
 } from './ImagePicker.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
+import ImageFinder from '../../atom/ImageFinder/ImageFinder';
 
 const icons = [
   {
     id: 'FiLayers',
     icon: FiLayers,
-    name: 'Template',
+    name: 'Upload',
   },
   {
     id: 'customize',
     icon: FiLayers,
-    name: 'Settings',
+    name: 'Pexels',
   },
 ];
 
 const ImagePicker = () => {
   return (
     <ImagePickerWrapper>
-      <Tabs defaultIndex={0}>
+      <Tabs defaultIndex={1}>
         {/* Tab Navigation */}
         <TabList>
           {
@@ -41,10 +42,10 @@ const ImagePicker = () => {
         {/* Tab Item */}
         <PanelWrapper>
           <TabPanel>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque velit deserunt excepturi alias porro unde nam at. Totam, delectus inventore? Aspernatur voluptatibus ipsum totam temporibus aliquam, odit eaque, explicabo est mollitia hic eius minima quo eum quod saepe sapiente ad facere nobis, fugit incidunt expedita iure. Minima minus porro, quisquam dolorum autem aliquid itaque doloremque? Quas quaerat doloremque hic ducimus nam quidem quos voluptatem et placeat repudiandae ipsam necessitatibus vel reiciendis, maiores magnam modi consectetur sed numquam! Eius, voluptate eaque. Laudantium voluptatibus aspernatur praesentium quis rem. Aliquam libero quis suscipit asperiores omnis neque ullam dicta! Delectus officia accusantium sint. Rem?
+            <FilePicker />
           </TabPanel>
           <TabPanel>
-            panel 2
+            <ImageFinder />
           </TabPanel>
         </PanelWrapper>
       </Tabs>
