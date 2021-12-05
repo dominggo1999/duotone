@@ -77,7 +77,10 @@ export const TabPanel = styled(UnstyledTabPanel).attrs({ selectedClassName: 'sel
 
   &.selected {
     ${tw`  
-      block 
+      relative
+      flex 
+      flex-col 
+      h-full 
       px-4 
       md:px-5 
     `}

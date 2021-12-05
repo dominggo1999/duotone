@@ -70,8 +70,6 @@ const FilePicker = () => {
   });
 
   return useMemo(() => {
-    console.log('Geawgewagew');
-
     return (
       <FilePickerWrapper>
         <PickerBox {...getRootProps({ className: 'dropzone' })}>

@@ -59,12 +59,13 @@ const Template = () => {
     return (
       <TemplateWrapper>
         {
-          presets && presets.map((i) => {
+          presets && presets.slice(0, 20).map((i) => {
             const { foreground, wrapper } = i.settings;
 
             const frames = createKeyFrames();
             const scaleTime = 10 + Math.ceil(Math.random() * 10);
             const rotateTime = 30 + Math.ceil(Math.random() * 40);
+            console.log('GEwgew');
 
             return (
               <TemplateItem
@@ -73,11 +74,12 @@ const Template = () => {
               >
                 <ColorPreview>
                   <Blob
-                    c1={foreground.bg}
-                    c2={wrapper.bg}
                     frames={frames}
                     scaleTime={scaleTime}
                     rotateTime={rotateTime}
+                    style={{
+                      backgroundImage: `linear-gradient(${foreground.bg},${wrapper.bg})`,
+                    }}
                   />
                 </ColorPreview>
                 <TemplateName>
@@ -89,7 +91,7 @@ const Template = () => {
         }
       </TemplateWrapper>
     );
-  }, [state]);
+  }, []);
 };
 
 export default Template;

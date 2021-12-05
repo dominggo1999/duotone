@@ -101,21 +101,18 @@ const rotate = keyframes`
   }
 `;
 
+const animation = ({
+  scaleTime, rotateTime,
+}) => css`
+    ${morph} 10s linear infinite,
+    ${blobScale} ${`${scaleTime}s`} linear infinite,
+    ${rotate} ${`${rotateTime}s`} linear infinite;
+  `;
+
 export const Blob = styled.div`
+  animation: ${animation};
   ${tw`
-    w-full 
+    w-full
     h-full 
   `}
-
-  ${({
-    c1, c2, scaleTime, rotateTime,
-  }) => {
-    return css`
-      background-image: linear-gradient(${c1},${c2});
-      animation: ${morph} 10s linear infinite,${blobScale} ${scaleTime}s linear infinite,
-      ${rotate} ${rotateTime}s linear infinite  ;
-    `;
-  }}
-
- 
 `;
