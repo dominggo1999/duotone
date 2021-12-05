@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import Masonry from 'react-masonry-css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import queryString from 'query-string';
 import {
   ImageFinderWrapper, SearchBar, ImageList, ImageWrapper,
 } from './ImageFinder.style';
@@ -10,7 +11,8 @@ import { CanvasContext } from '../../context/Canvas.context';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { client } from '../../config/pexels.config';
+const apiKey = import.meta.env.VITE_APP_PEXELS_API_KEY;
+const baseURL = 'https://api.pexels.com/v1/search?';
 
 const ImageFinder = () => {
   const {
@@ -20,14 +22,24 @@ const ImageFinder = () => {
   const [errorMsg, setErrorMsg] = useState('');
 
   const queryPexels = async (query) => {
-    const res = await client.photos.search(
-      {
-        query,
-        per_page: 30,
-      },
-    );
+    const q = queryString.stringify({
+      query,
+      per_page: 30,
+    });
 
-    const photos = res.photos;
+    const url = `${baseURL}${q}`;
+
+    console.log(url);
+
+    const res = await fetch(url, {
+      headers: {
+        Authorization: apiKey,
+      },
+    });
+
+    const results = await res.json();
+
+    const photos = results.photos;
 
     if(photos.length) {
       savePexelsResults(photos);
