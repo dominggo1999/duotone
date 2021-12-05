@@ -13,7 +13,9 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { client } from '../../config/pexels.config';
 
 const ImageFinder = () => {
-  const { savePexelsResults, pexelsImages, updateValue } = useContext(CanvasContext);
+  const {
+    savePexelsResults, pexelsImages, updateValue, updateClientImageName,
+  } = useContext(CanvasContext);
   const inputRef = useRef();
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -45,6 +47,7 @@ const ImageFinder = () => {
 
   const useImage = (img) => {
     updateValue('image', 'src', img);
+    updateClientImageName('');
   };
 
   return (
