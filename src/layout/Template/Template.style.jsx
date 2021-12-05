@@ -104,10 +104,10 @@ const rotate = keyframes`
 const animation = ({
   scaleTime, rotateTime,
 }) => css`
-    ${morph} 10s linear infinite,
-    ${blobScale} ${`${scaleTime}s`} linear infinite,
-    ${rotate} ${`${rotateTime}s`} linear infinite;
-  `;
+  ${morph} 10s linear infinite,
+  ${blobScale} ${`${scaleTime}s`} linear infinite,
+  ${rotate} ${`${rotateTime}s`} linear infinite;
+`;
 
 export const Blob = styled.div`
   animation: ${animation};
