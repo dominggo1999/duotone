@@ -82,7 +82,9 @@ export const ImageWrapper = styled.div`
   img{
     ${tw`
       w-full
-      object-cover 
+      object-cover  
     `}
+
+    aspect-ratio: ${({ w, h }) => `${w}/${h}`};
   }
 `;

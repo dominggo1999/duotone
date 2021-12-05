@@ -47,6 +47,7 @@ const ImageFinder = () => {
 
   const useImage = (img) => {
     updateValue('image', 'src', img);
+    updateValue('wrapper', 'scale', 1);
     updateClientImageName('');
   };
 
@@ -72,8 +73,10 @@ const ImageFinder = () => {
                 <ImageWrapper
                   onClick={() => useImage(image.src.large)}
                   key={image.id}
+                  w={image.width}
+                  h={image.height}
                 >
-                  <img
+                  <LazyLoadImage
                     src={image.src.small}
                     effect="blur"
                     alt={image.photographer}
