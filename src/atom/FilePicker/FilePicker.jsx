@@ -25,7 +25,6 @@ const FilePicker = () => {
 
   const readFile = (file) => {
     const reader = new FileReader();
-    const img = new Image();
     reader.onload = () => {
       const newSrc = reader.result;
       updateValue('image', 'src', newSrc);

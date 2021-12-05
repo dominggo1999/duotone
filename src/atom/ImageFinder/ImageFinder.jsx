@@ -13,7 +13,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { client } from '../../config/pexels.config';
 
 const ImageFinder = () => {
-  const { savePexelsResults, pexelsImages } = useContext(CanvasContext);
+  const { savePexelsResults, pexelsImages, updateValue } = useContext(CanvasContext);
   const inputRef = useRef();
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -43,6 +43,10 @@ const ImageFinder = () => {
     query.value = '';
   };
 
+  const useImage = (img) => {
+    updateValue('image', 'src', img);
+  };
+
   return (
     <ImageFinderWrapper>
       <SearchBar onSubmit={findImages}>
@@ -62,7 +66,10 @@ const ImageFinder = () => {
           {
             pexelsImages?.length > 0 && pexelsImages.map((image) => {
               return (
-                <ImageWrapper key={image.id}>
+                <ImageWrapper
+                  onClick={() => useImage(image.src.large)}
+                  key={image.id}
+                >
                   <LazyLoadImage
                     src={image.src.small}
                     effect="blur"
