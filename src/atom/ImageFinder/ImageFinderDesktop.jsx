@@ -12,12 +12,15 @@ const ImageFinderDesktop = (
     pexelsImages,
     useImage,
     errorMsg,
+    loading,
   },
 ) => {
   const breakpointColumns = {
     default: 2,
     768: 3,
   };
+
+  if(loading) return <p>loading...</p>;
 
   return (
     <ImageList>
@@ -46,7 +49,7 @@ const ImageFinderDesktop = (
         }
 
         {
-          errorMsg && <p> no result found</p>
+          errorMsg && <p> {errorMsg}</p>
         }
       </Masonry>
     </ImageList>

@@ -21,6 +21,7 @@ const ImageFinder = () => {
   } = useContext(CanvasContext);
   const inputRef = useRef();
   const [errorMsg, setErrorMsg] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const queryPexels = async (query) => {
     const q = queryString.stringify({
@@ -30,20 +31,28 @@ const ImageFinder = () => {
 
     const url = `${baseURL}${q}`;
 
-    const res = await fetch(url, {
-      headers: {
-        Authorization: apiKey,
-      },
-    });
+    try {
+      const res = await fetch(url, {
+        headers: {
+          Authorization: apiKey,
+        },
+      });
 
-    const results = await res.json();
-    const photos = results.photos;
+      const results = await res.json();
+      const photos = results.photos;
 
-    if(photos.length) {
-      savePexelsResults(photos);
-    }else{
-      savePexelsResults([]);
-      setErrorMsg('No Result Found');
+      if(photos.length) {
+        savePexelsResults(photos);
+        setLoading(false);
+      }else{
+        savePexelsResults([]);
+        setErrorMsg('No Result Found');
+        setLoading(false);
+      }
+    } catch (error) {
+      setLoading(false);
+      setErrorMsg('Error When Getting Images');
+      console.log(error);
     }
   };
 
@@ -51,6 +60,7 @@ const ImageFinder = () => {
     e.preventDefault();
     const query = inputRef.current;
 
+    setLoading(true);
     queryPexels(query.value);
     query.value = '';
   };
@@ -59,11 +69,6 @@ const ImageFinder = () => {
     updateValue('image', 'src', img);
     updateValue('wrapper', 'scale', 1);
     updateClientImageName('');
-  };
-
-  const breakpointColumns = {
-    default: 2,
-    768: 3,
   };
 
   const { isMedium } = useSizes();
@@ -85,6 +90,7 @@ const ImageFinder = () => {
               pexelsImages={pexelsImages}
               useImage={useImage}
               errorMsg={errorMsg}
+              loading={loading}
             />
           )
           : (
@@ -92,6 +98,7 @@ const ImageFinder = () => {
               pexelsImages={pexelsImages}
               useImage={useImage}
               errorMsg={errorMsg}
+              loading={loading}
             />
           )
       }
