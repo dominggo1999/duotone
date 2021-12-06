@@ -70,7 +70,7 @@ const Canvas = () => {
       <ImageWrapper
         id="final-image"
         style={imageWrapperStyle}
-        loading={loading}
+        loading={loading ? 'hidden' : null}
       >
         <Image
           src={image.src}

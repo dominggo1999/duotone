@@ -3,9 +3,10 @@ import React, {
 } from 'react';
 import queryString from 'query-string';
 import {
-  ImageFinderWrapper, SearchBar,
+  ImageFinderWrapper, SearchBar, LoadingWrapper,
 } from './ImageFinder.style';
 import { CanvasContext } from '../../context/Canvas.context';
+import { Spinner, Skeleton } from '../../shared/Spinner';
 
 const ImageFinderURLMode = () => {
   const {
@@ -16,8 +17,9 @@ const ImageFinderURLMode = () => {
   } = useContext(CanvasContext);
   const [errorMsg, setErrorMsg] = useState();
   const inputRef = useRef();
+  const [loading, setLoading] = useState();
 
-  const imageExists = (url, callback) => {
+  const imageExists = async (url, callback) => {
     const img = new Image();
     img.onload = () => { callback(true); };
     img.onerror = () => { callback(false); };
@@ -26,6 +28,7 @@ const ImageFinderURLMode = () => {
 
   const findImageInURL = (e) => {
     e.preventDefault();
+    setLoading(true);
     const url = inputRef.current.value;
 
     imageExists(url, (exists) => {
@@ -35,9 +38,11 @@ const ImageFinderURLMode = () => {
         updateValue('wrapper', 'scale', 1);
         updateClientImageName('');
         setErrorMsg('');
+        setLoading(false);
         inputRef.current.blur();
       }else{
         setErrorMsg('Please Input A Valid Image URL');
+        setLoading(false);
       }
     });
   };
@@ -53,6 +58,16 @@ const ImageFinderURLMode = () => {
         />
         <button type="submit">Search</button>
       </SearchBar>
+
+      {
+        loading && (
+          <LoadingWrapper>
+            <Spinner>
+              <Skeleton />
+            </Spinner>
+          </LoadingWrapper>
+        )
+      }
 
       {errorMsg && <p>{errorMsg}</p> }
     </ImageFinderWrapper>
