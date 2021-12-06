@@ -24,7 +24,7 @@ export const ImageFinderWrapper = styled.div`
 export const SearchBar = styled.form`
   ${tw` 
     h-[35%]
-    max-h-[65px]
+    h-[65px]
     sticky 
     top-0  
     left-0

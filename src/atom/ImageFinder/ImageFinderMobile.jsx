@@ -15,6 +15,7 @@ const ImageFinderMobile = (
   return (
     <Scrollbars
       autoHide={200}
+      autoHideDuration={200}
       style={{
         height: '65%',
       }}
