@@ -11,17 +11,6 @@ export const TemplateWrapper = styled.div`
   `}
 `;
 
-export const TemplateItem = styled.div`
-  ${tw`
-    w-1/3
-    cursor-pointer 
-    flex 
-    flex-col
-    items-center 
-    justify-center
-  `}
-`;
-
 export const TemplateName = styled.div`
   ${tw`
     font-primary 
@@ -115,4 +104,24 @@ export const Blob = styled.div`
     w-full
     h-full 
   `}
+`;
+
+export const TemplateItem = styled.div`
+  ${tw`
+    w-1/3
+    cursor-pointer 
+    flex 
+    flex-col
+    items-center 
+    justify-center  
+  `}
+
+  transition: transform 400ms ease-in-out;
+
+
+  @media screen and (min-width:768px){
+    &:hover  {
+      transform: translateY(-10px) scale(1.1);
+    }
+  }
 `;
