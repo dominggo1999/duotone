@@ -21,18 +21,45 @@ export const ImageFinderWrapper = styled.div`
   }
 `;
 
+export const LoadingWrapper = styled.div`
+  ${tw`
+    w-full 
+    h-full 
+    flex 
+    items-center 
+    justify-center 
+    absolute 
+    left-0
+  `} 
+
+  top: 200%;
+`;
+
+export const LoadingWrapperMobile = styled.div`
+  ${tw`
+    w-full 
+    flex 
+    items-center 
+    justify-center 
+  `} 
+
+  height: calc(100% - 65px);
+`;
+
 export const SearchBar = styled.form`
   ${tw` 
-    max-h-[35%]
-    h-[65px]
+    max-h-[65px] 
+    w-full
     sticky 
     top-0  
     left-0
-    flex  
+    flex   
+    flex-wrap 
     gap-2
     bg-primary 
     py-2 
     z-[9999] 
+    justify-between
   `}
 
   input {
@@ -41,16 +68,18 @@ export const SearchBar = styled.form`
       border-2 
       border-white 
       py-2 
-      px-5 
+      px-3 
       rounded-xl
       text-white  
       outline-none 
-      focus:(border-accent) 
+      focus:(border-accent)
+      w-[60%]      
     `}
   }
 
   button{
-    ${tw`
+    ${tw` 
+      w-[35%]      
       bg-accent 
       px-5
       rounded-xl 
@@ -81,7 +110,7 @@ export const ImageWrapper = styled.div`
   ${tw`
     w-full 
     h-auto 
-    mb-4 
+    mb-2 
     cursor-pointer
   `} 
   aspect-ratio: ${({ w, h }) => `${w}/${h}`};
@@ -115,8 +144,7 @@ export const ImageWrapperMobile = styled.div`
     h-full 
   `}
   aspect-ratio: ${({ w, h }) => `${w}/${h}`};
-
-
+  
   span {
     ${tw`
       w-full 

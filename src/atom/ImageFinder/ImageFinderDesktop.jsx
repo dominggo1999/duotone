@@ -2,8 +2,9 @@ import React from 'react';
 import Masonry from 'react-masonry-css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
-  ImageList, ImageWrapper,
+  ImageList, ImageWrapper, LoadingWrapper,
 } from './ImageFinder.style';
+import { Spinner, Skeleton } from '../../shared/Spinner';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -20,7 +21,15 @@ const ImageFinderDesktop = (
     768: 3,
   };
 
-  if(loading) return <p>loading...</p>;
+  if(loading) {
+    return (
+      <LoadingWrapper>
+        <Spinner>
+          <Skeleton />
+        </Spinner>
+      </LoadingWrapper>
+    );
+  }
 
   return (
     <ImageList>
@@ -42,6 +51,7 @@ const ImageFinderDesktop = (
                   src={image.src.large}
                   effect="blur"
                   alt={image.photographer}
+                  draggable="false"
                 />
               </ImageWrapper>
             );

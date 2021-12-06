@@ -1,5 +1,5 @@
 import React, {
-  useState, useContext, useRef,
+  useState, useContext, useRef, useEffect,
 } from 'react';
 import queryString from 'query-string';
 import {
@@ -20,6 +20,7 @@ const ImageFinder = () => {
     savePexelsResults, pexelsImages, updateValue, updateClientImageName,
   } = useContext(CanvasContext);
   const inputRef = useRef();
+  const queryRef = useRef();
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -30,24 +31,25 @@ const ImageFinder = () => {
     });
 
     const url = `${baseURL}${q}`;
-
     try {
-      const res = await fetch(url, {
-        headers: {
-          Authorization: apiKey,
-        },
-      });
+      if(!loading) {
+        const res = await fetch(url, {
+          headers: {
+            Authorization: apiKey,
+          },
+        });
 
-      const results = await res.json();
-      const photos = results.photos;
+        const results = await res.json();
+        const photos = results.photos;
 
-      if(photos.length) {
-        savePexelsResults(photos);
-        setLoading(false);
-      }else{
-        savePexelsResults([]);
-        setErrorMsg('No Result Found');
-        setLoading(false);
+        if(photos.length) {
+          savePexelsResults(photos);
+          setLoading(false);
+        }else{
+          savePexelsResults([]);
+          setErrorMsg('No Result Found');
+          setLoading(false);
+        }
       }
     } catch (error) {
       setLoading(false);
@@ -59,10 +61,18 @@ const ImageFinder = () => {
   const findImages = (e) => {
     e.preventDefault();
     const query = inputRef.current;
+    const value = query.value.trim();
 
-    setLoading(true);
-    queryPexels(query.value);
+    if(queryRef.current !== value) {
+      setLoading(true);
+      queryPexels(value);
+
+      // Cache query to reduce api call if calling the same query to the previous one
+      queryRef.current = value;
+    }
+
     query.value = '';
+    query.blur();
   };
 
   const useImage = (img) => {

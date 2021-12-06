@@ -12,6 +12,7 @@ const initialState = {
   ...initialPreset,
   clientImageName: '',
   pexelsImages: [],
+  urlModeLink: '',
 };
 
 export const CanvasContext = createContext();
@@ -27,7 +28,6 @@ const reducer = (state = initialState, action) => {
         draft.image = action.payload.image;
         draft.foreground = action.payload.foreground;
         draft.wrapper = action.payload.wrapper;
-
         draft.image = { ...draft.image, src: state.image.src };
         return;
 
@@ -37,6 +37,10 @@ const reducer = (state = initialState, action) => {
 
       case 'SAVE_PEXELS_RESULTS':
         draft.pexelsImages = action.payload;
+        return;
+
+      case 'SAVE_LINK':
+        draft.urlModeLink = action.payload;
         return;
 
       default:
@@ -80,12 +84,20 @@ const CanvasProvider = ({ children }) => {
     });
   };
 
+  const saveLink = (link) => {
+    dispatch({
+      type: 'SAVE_LINK',
+      payload: link,
+    });
+  };
+
   const value = {
     ...state,
     updateValue,
     usePreset,
     updateClientImageName,
     savePexelsResults,
+    saveLink,
   };
 
   return (

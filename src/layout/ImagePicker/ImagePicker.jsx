@@ -7,6 +7,7 @@ import {
 } from './ImagePicker.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
 import ImageFinder from '../../atom/ImageFinder/ImageFinder';
+import ImageFinderURLMode from '../../atom/ImageFinder/ImageFinderURLMode';
 
 const icons = [
   {
@@ -18,6 +19,11 @@ const icons = [
     id: 'customize',
     icon: FiLayers,
     name: 'Pexels',
+  },
+  {
+    id: 'url',
+    icon: FiLayers,
+    name: 'Url',
   },
 ];
 
@@ -46,6 +52,9 @@ const ImagePicker = () => {
           </TabPanel>
           <TabPanel>
             <ImageFinder />
+          </TabPanel>
+          <TabPanel>
+            <ImageFinderURLMode />
           </TabPanel>
         </PanelWrapper>
       </Tabs>

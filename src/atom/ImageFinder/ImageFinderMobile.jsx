@@ -1,7 +1,11 @@
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { ImageListMobile, ImageWrapperMobile } from './ImageFinder.style';
+import {
+  ImageListMobile, ImageWrapperMobile,
+  LoadingWrapperMobile,
+} from './ImageFinder.style';
+import { Skeleton, Spinner } from '../../shared/Spinner';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -10,14 +14,25 @@ const ImageFinderMobile = (
     pexelsImages,
     useImage,
     errorMsg,
+    loading,
   },
 ) => {
+  if(loading) {
+    return (
+      <LoadingWrapperMobile>
+        <Spinner>
+          <Skeleton />
+        </Spinner>
+      </LoadingWrapperMobile>
+    );
+  }
+
   return (
     <Scrollbars
-      autoHide={200}
+      autoHide
       autoHideDuration={200}
       style={{
-        height: '65%',
+        height: 'calc(100% - 65px)',
       }}
       renderThumbHorizontal={(props) => (
         <div
@@ -40,10 +55,15 @@ const ImageFinderMobile = (
                   src={image.src.large}
                   effect="blur"
                   alt={image.photographer}
+                  draggable="false"
                 />
               </ImageWrapperMobile>
             );
           })
+        }
+
+        {
+          errorMsg && <p> {errorMsg}</p>
         }
       </ImageListMobile>
     </Scrollbars>

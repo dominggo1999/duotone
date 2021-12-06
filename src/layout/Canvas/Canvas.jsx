@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   CanvasWrapper,
   ImageWrapper,
   Foreground,
   Image,
+  LoadingIndicator,
 } from './Canvas.style';
 import { CanvasContext } from '../../context/Canvas.context';
 import useSizes from '../../hooks/useSizes';
+import { Spinner, Skeleton } from '../../shared/Spinner';
 
 const Canvas = () => {
   // VITE BUG, need to do this to prevent error on development
@@ -14,9 +16,10 @@ const Canvas = () => {
     return null;
   }
   const {
-    wrapper, image, foreground, updateValue,
+    wrapper, image, foreground,
   } = useContext(CanvasContext) || {};
   const { isMedium } = useSizes();
+  const [imageLoading, setImageLoading] = useState(false);
 
   // VITE BUG, need to do this to prevent error on development
   if(!CanvasContext) {
@@ -44,15 +47,29 @@ const Canvas = () => {
     mixBlendMode: `${foreground.blendMode}`,
   };
 
+  useEffect(() => {
+    setImageLoading(true);
+  }, [image.src]);
+
   return (
     <CanvasWrapper>
+      {imageLoading
+        && (
+        <LoadingIndicator>
+          <Spinner>
+            <Skeleton />
+          </Spinner>
+        </LoadingIndicator>
+        )}
       <ImageWrapper
         id="final-image"
         style={imageWrapperStyle}
       >
         <Image
+          onLoad={() => setImageLoading(false)}
           src={image.src}
           style={imageStyle}
+          draggable="false"
         />
         <Foreground style={foregroundStyle} />
       </ImageWrapper>

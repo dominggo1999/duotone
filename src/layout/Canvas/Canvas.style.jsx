@@ -9,7 +9,21 @@ export const CanvasWrapper = styled.div`
     items-center 
     justify-center 
     relative 
-    overflow-hidden 
+    overflow-hidden  
+    select-none 
+    relative
+  `}
+`;
+
+export const LoadingIndicator = styled.div`
+  ${tw`
+    absolute 
+    w-full 
+    h-full 
+    flex 
+    items-center 
+    justify-center
+    z-[3]
   `}
 `;
 
