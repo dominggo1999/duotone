@@ -1,4 +1,4 @@
-import tw, { styled, css } from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 
 export const CanvasWrapper = styled.div`
   ${tw` 
@@ -30,8 +30,10 @@ export const LoadingIndicator = styled.div`
 export const ImageWrapper = styled.div`
   ${tw`
     relative 
-    overflow-hidden
-  `}
+    overflow-hidden 
+  `} 
+
+  visibility: ${({ loading }) => (loading ? 'hidden' : 'visible')};
 `;
 
 export const Image = styled.img`

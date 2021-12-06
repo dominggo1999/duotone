@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {
+  useContext, useEffect, useRef, useState,
+} from 'react';
 import {
   CanvasWrapper,
   ImageWrapper,
@@ -19,7 +21,8 @@ const Canvas = () => {
     wrapper, image, foreground,
   } = useContext(CanvasContext) || {};
   const { isMedium } = useSizes();
-  const [imageLoading, setImageLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const count = useRef(0);
 
   // VITE BUG, need to do this to prevent error on development
   if(!CanvasContext) {
@@ -48,31 +51,36 @@ const Canvas = () => {
   };
 
   useEffect(() => {
-    setImageLoading(true);
-  }, [image.src]);
+    if(!count.current) {
+      //  Show loading indicator when component fist mount
+      setLoading(true);
+    }
+  }, []);
 
   return (
     <CanvasWrapper>
-      {imageLoading
-        && (
-        <LoadingIndicator>
-          <Spinner>
-            <Skeleton />
-          </Spinner>
-        </LoadingIndicator>
-        )}
+      {loading && (
+      <LoadingIndicator>
+        <Spinner>
+          <Skeleton />
+        </Spinner>
+      </LoadingIndicator>
+      )}
+
       <ImageWrapper
         id="final-image"
         style={imageWrapperStyle}
+        loading={loading}
       >
         <Image
-          onLoad={() => setImageLoading(false)}
           src={image.src}
           style={imageStyle}
           draggable="false"
+          onLoad={() => setLoading(false)}
         />
         <Foreground style={foregroundStyle} />
       </ImageWrapper>
+
     </CanvasWrapper>
   );
 };

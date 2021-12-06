@@ -13,7 +13,6 @@ const ImageFinderURLMode = () => {
     updateClientImageName,
     saveLink,
     urlModeLink,
-    urlMode,
   } = useContext(CanvasContext);
   const [errorMsg, setErrorMsg] = useState();
   const inputRef = useRef();

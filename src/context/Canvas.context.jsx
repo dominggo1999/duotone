@@ -6,7 +6,9 @@ import { presets } from '../config/presets';
 const index = presets.map((i) => i.name).indexOf('spotify');
 
 const initialPreset = presets[index].settings;
-initialPreset.image.src = 'https://picsum.photos/1000?image=874';
+
+// default image
+initialPreset.image.src = new URL('../assets/default.jpeg', import.meta.url).href;
 
 const initialState = {
   ...initialPreset,

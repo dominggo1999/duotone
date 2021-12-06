@@ -50,7 +50,7 @@ const Sidebar = () => {
       <Brand />
 
       <Tabs
-        defaultIndex={2}
+        defaultIndex={0}
       >
         {/* Tab Navigation */}
         <TabList>
