@@ -4,7 +4,7 @@ export const CanvasWrapper = styled.div`
   ${tw` 
     h-full
     w-full 
-    bg-black 
+    bg-primary 
     flex 
     items-center 
     justify-center 

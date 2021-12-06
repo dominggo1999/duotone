@@ -29,8 +29,6 @@ const ImageFinder = () => {
 
     const url = `${baseURL}${q}`;
 
-    console.log(url);
-
     const res = await fetch(url, {
       headers: {
         Authorization: apiKey,
@@ -38,7 +36,6 @@ const ImageFinder = () => {
     });
 
     const results = await res.json();
-
     const photos = results.photos;
 
     if(photos.length) {
@@ -63,6 +60,11 @@ const ImageFinder = () => {
     updateClientImageName('');
   };
 
+  const breakpointColumns = {
+    default: 2,
+    768: 3,
+  };
+
   return (
     <ImageFinderWrapper>
       <SearchBar onSubmit={findImages}>
@@ -77,7 +79,7 @@ const ImageFinder = () => {
         <Masonry
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
-          breakpointCols={2}
+          breakpointCols={breakpointColumns}
         >
           {
             pexelsImages?.length > 0 && pexelsImages.map((image) => {
@@ -89,7 +91,7 @@ const ImageFinder = () => {
                   h={image.height}
                 >
                   <LazyLoadImage
-                    src={image.src.small}
+                    src={image.src.large}
                     effect="blur"
                     alt={image.photographer}
                   />

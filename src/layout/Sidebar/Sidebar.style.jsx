@@ -12,7 +12,7 @@ export const SidebarWrapper = styled.div`
     min-h-[50%]
     md:h-full 
     md:min-w-[350px]
-    bg-black 
+    bg-primary 
     pt-5
     md:py-5 
     flex 

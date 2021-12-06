@@ -17,7 +17,7 @@ export const SearchBar = styled.form`
     top-0  
     flex  
     gap-2
-    bg-black 
+    bg-primary 
     py-2 
     z-[9999]
   `}

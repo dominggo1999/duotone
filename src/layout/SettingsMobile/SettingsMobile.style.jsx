@@ -29,7 +29,7 @@ export const TabList = styled(UnstyledTabList)`
   ${tw`   
     flex   
     justify-between  
-    bg-black
+    bg-primary
   `}
 `;
 

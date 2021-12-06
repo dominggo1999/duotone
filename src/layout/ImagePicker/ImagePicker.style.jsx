@@ -60,7 +60,7 @@ export const Tab = styled(UnstyledTab).attrs({
   }
 
   &.selected {
-    ${tw`text-accent bg-black `}
+    ${tw`text-accent bg-primary `}
   }
 `;
 
