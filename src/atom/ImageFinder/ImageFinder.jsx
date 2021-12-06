@@ -1,13 +1,14 @@
 import React, {
-  useState, useContext, useRef, useEffect,
+  useState, useContext, useRef,
 } from 'react';
-import Masonry from 'react-masonry-css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import queryString from 'query-string';
 import {
-  ImageFinderWrapper, SearchBar, ImageList, ImageWrapper,
+  ImageFinderWrapper, SearchBar,
 } from './ImageFinder.style';
 import { CanvasContext } from '../../context/Canvas.context';
+import useSizes from '../../hooks/useSizes';
+import ImageFinderDesktop from './ImageFinderDesktop';
+import ImageFinderMobile from './ImageFinderMobile';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -65,6 +66,8 @@ const ImageFinder = () => {
     768: 3,
   };
 
+  const { isMedium } = useSizes();
+
   return (
     <ImageFinderWrapper>
       <SearchBar onSubmit={findImages}>
@@ -75,36 +78,23 @@ const ImageFinder = () => {
         />
         <button type="submit">Search</button>
       </SearchBar>
-      <ImageList>
-        <Masonry
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-          breakpointCols={breakpointColumns}
-        >
-          {
-            pexelsImages?.length > 0 && pexelsImages.map((image) => {
-              return (
-                <ImageWrapper
-                  onClick={() => useImage(image.src.large)}
-                  key={image.id}
-                  w={image.width}
-                  h={image.height}
-                >
-                  <LazyLoadImage
-                    src={image.src.large}
-                    effect="blur"
-                    alt={image.photographer}
-                  />
-                </ImageWrapper>
-              );
-            })
-          }
-
-          {
-            errorMsg && <p> no result found</p>
-          }
-        </Masonry>
-      </ImageList>
+      {
+        isMedium
+          ? (
+            <ImageFinderDesktop
+              pexelsImages={pexelsImages}
+              useImage={useImage}
+              errorMsg={errorMsg}
+            />
+          )
+          : (
+            <ImageFinderMobile
+              pexelsImages={pexelsImages}
+              useImage={useImage}
+              errorMsg={errorMsg}
+            />
+          )
+      }
     </ImageFinderWrapper>
   );
 };

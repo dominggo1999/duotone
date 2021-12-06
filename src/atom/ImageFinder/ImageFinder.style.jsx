@@ -2,24 +2,37 @@ import tw, { styled } from 'twin.macro';
 
 export const ImageFinderWrapper = styled.div`
   ${tw`
-    flex 
+    inline-block
+    md:block 
     w-full 
     h-full 
-    relative 
-    flex-col 
-    md:pr-3
+    md:pr-3 
+    relative
   `}
+
+  .custom-scrollbar-horizontal{
+    ${tw`
+      rounded-[3px]
+      bg-accent 
+      h-[0.4rem] 
+      z-[9999] 
+      cursor-pointer 
+    `}
+  }
 `;
 
 export const SearchBar = styled.form`
-  ${tw`
+  ${tw` 
+    h-[35%]
+    max-h-[65px]
     sticky 
     top-0  
+    left-0
     flex  
     gap-2
     bg-primary 
     py-2 
-    z-[9999]
+    z-[9999] 
   `}
 
   input {
@@ -32,7 +45,7 @@ export const SearchBar = styled.form`
       rounded-xl
       text-white  
       outline-none 
-      focus:(border-accent)
+      focus:(border-accent) 
     `}
   }
 
@@ -71,14 +84,45 @@ export const ImageWrapper = styled.div`
     mb-4 
     cursor-pointer
   `} 
+  aspect-ratio: ${({ w, h }) => `${w}/${h}`};
+
 
   span {
     ${tw`
       w-full 
       h-full
     `}
+  }
 
+  img{
+    ${tw`
+      w-full
+      object-cover  
+    `}
+  }
+`;
+
+export const ImageListMobile = styled.div`
+  ${tw` 
+    h-full
+    flex   
+    gap-2
+  `} 
+`;
+
+export const ImageWrapperMobile = styled.div`
+  ${tw`
+    h-full 
+  `}
   aspect-ratio: ${({ w, h }) => `${w}/${h}`};
+
+
+  span {
+    ${tw`
+      w-full 
+      h-full 
+      cursor-pointer
+    `}
   }
 
   img{

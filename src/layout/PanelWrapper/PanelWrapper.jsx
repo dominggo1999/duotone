@@ -14,6 +14,22 @@ const PanelWrapper = ({ children }) => {
             className="custom-scrollbar-vertical"
           />
         )}
+        renderThumbHorizontal={(props) => (
+          <div
+            {...props}
+            style={{
+              display: 'none',
+            }}
+          />
+        )}
+        renderTrackHorizontal={(props) => (
+          <div
+            {...props}
+            style={{
+              display: 'none',
+            }}
+          />
+        )}
       >
         {children}
       </Scrollbars>
