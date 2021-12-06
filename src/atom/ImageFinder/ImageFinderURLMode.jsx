@@ -1,12 +1,12 @@
 import React, {
-  useState, useRef, useContext, useEffect,
+  useState, useRef, useContext,
 } from 'react';
-import queryString from 'query-string';
 import {
-  ImageFinderWrapper, SearchBar, LoadingWrapper,
+  ImageFinderWrapper, SearchBar, LoadingWrapper, LoadingWrapperMobile,
 } from './ImageFinder.style';
 import { CanvasContext } from '../../context/Canvas.context';
 import { Spinner, Skeleton } from '../../shared/Spinner';
+import useSizes from '../../hooks/useSizes';
 
 const ImageFinderURLMode = () => {
   const {
@@ -18,6 +18,7 @@ const ImageFinderURLMode = () => {
   const [errorMsg, setErrorMsg] = useState();
   const inputRef = useRef();
   const [loading, setLoading] = useState();
+  const { isMedium } = useSizes();
 
   const imageExists = async (url, callback) => {
     const img = new Image();
@@ -60,12 +61,22 @@ const ImageFinderURLMode = () => {
       </SearchBar>
 
       {
-        loading && (
-          <LoadingWrapper>
+         isMedium && loading && (
+         <LoadingWrapper>
+           <Spinner>
+             <Skeleton />
+           </Spinner>
+         </LoadingWrapper>
+         )
+      }
+
+      {
+        !isMedium && loading && (
+          <LoadingWrapperMobile>
             <Spinner>
               <Skeleton />
             </Spinner>
-          </LoadingWrapper>
+          </LoadingWrapperMobile>
         )
       }
 
