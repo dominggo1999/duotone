@@ -2,13 +2,17 @@ import React, { useContext, useState } from 'react';
 import DomToImage from '@yzfe/dom-to-image';
 import { CanvasContext } from '../../context/Canvas.context';
 
+const proxyUrl = import.meta.env.VITE_APP_IMAGE_PROXY;
+
 const Export = () => {
   const { image, updateValue } = useContext(CanvasContext);
   const [error, setError] = useState('');
 
+  let res;
+
   const proxy = async (url) => {
     try {
-      const res = await fetch(`${'http://localhost:4000/?url='}${url}`);
+      res = await fetch(`${proxyUrl}?url=${url}`);
     } catch (error) {
       setError('Something wrong when downloading the image');
     }
