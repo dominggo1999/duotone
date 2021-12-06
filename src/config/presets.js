@@ -23,7 +23,7 @@ export const presets = [
     },
   },
   {
-    name: 'purlply',
+    name: 'purply',
     settings: {
       image: {
         blendMode: 'unset',
@@ -46,7 +46,7 @@ export const presets = [
     },
   },
   {
-    name: 'blade-runner',
+    name: 'princess blue',
     settings: {
       image: {
         blendMode: 'overlay',
@@ -69,7 +69,7 @@ export const presets = [
     },
   },
   {
-    name: 'law-order',
+    name: 'spicy red',
     settings: {
       image: {
         blendMode: 'unset',
@@ -92,7 +92,7 @@ export const presets = [
     },
   },
   {
-    name: 'moody',
+    name: 'black velvet',
     settings: {
       image: {
         blendMode: 'screen',
@@ -115,7 +115,7 @@ export const presets = [
     },
   },
   {
-    name: 'ig',
+    name: 'melon baby',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -136,7 +136,7 @@ export const presets = [
     },
   },
   {
-    name: 'red',
+    name: 'geranium red',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -159,7 +159,7 @@ export const presets = [
     },
   },
   {
-    name: 'vintage',
+    name: 'vintage memo',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -180,7 +180,7 @@ export const presets = [
     },
   },
   {
-    name: 'test',
+    name: 'perrywinkle',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -203,7 +203,7 @@ export const presets = [
     },
   },
   {
-    name: 'mlml',
+    name: 'pick candy',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -224,7 +224,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'lemon',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -247,7 +247,7 @@ export const presets = [
     },
   },
   {
-    name: 'xoxo',
+    name: 'witch hazel',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -270,7 +270,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'droplet',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -291,7 +291,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'evergreen',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -312,7 +312,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'magnificence',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -333,7 +333,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'kinda red',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -354,7 +354,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'purplish pink',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -375,7 +375,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'icy breeze',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -396,7 +396,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'rose melody',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -417,7 +417,7 @@ export const presets = [
     },
   },
   {
-    name: 'check',
+    name: 'sephia orange',
     settings: {
       image: {
         blendMode: 'multiply',

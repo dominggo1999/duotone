@@ -14,7 +14,6 @@ export const TemplateWrapper = styled.div`
 export const TemplateName = styled.div`
   ${tw`
     font-primary 
-    text-xl 
     text-center 
     font-semibold
   `}
