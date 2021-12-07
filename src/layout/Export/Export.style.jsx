@@ -65,7 +65,7 @@ export const Backdrop = styled.div`
     justify-center 
     items-center 
     w-full 
-    h-full 
+    h-screen
   `}
 
   background-color: #00000057;
