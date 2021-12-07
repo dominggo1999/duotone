@@ -3,7 +3,8 @@ import tw, { styled } from 'twin.macro';
 export const OutputWrapper = styled.div`
   ${tw` 
     w-full 
-    h-screen
+    h-[66%]
+    w-[90%]
     md:w-[80%]  
     md:h-[80%] 
     overflow-hidden 
