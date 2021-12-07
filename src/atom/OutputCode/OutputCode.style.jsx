@@ -75,8 +75,8 @@ export const ActionItem = styled.button`
 
 export const ActionText = styled(ActionItem)`
   ${tw`
-    hover:transform 
-    hover:-translate-y-1
+    md:hover:transform 
+    md:hover:-translate-y-1
   `}
   transition: transform ease-in-out 200ms;
 
