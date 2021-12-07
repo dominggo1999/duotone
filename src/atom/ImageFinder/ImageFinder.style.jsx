@@ -9,16 +9,6 @@ export const ImageFinderWrapper = styled.div`
     md:pr-3 
     relative
   `}
-
-  .custom-scrollbar-horizontal{
-    ${tw`
-      rounded-[3px]
-      bg-accent 
-      h-[0.4rem] 
-      z-[9999] 
-      cursor-pointer 
-    `}
-  }
 `;
 
 export const LoadingWrapper = styled.div`

@@ -2,7 +2,7 @@ import React, {
   useState, useRef, useContext, useEffect, useMemo,
 } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
-import { Portal, PortalWithState } from 'react-portal';
+import { Portal } from 'react-portal';
 import {
   ColorPickerWrapper, TogglePickerButton, Title, Symbol, MobilePicker,
 } from './ColorPicker.style';

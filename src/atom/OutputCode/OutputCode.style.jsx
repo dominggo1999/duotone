@@ -1,0 +1,99 @@
+import tw, { styled } from 'twin.macro';
+
+export const OutputWrapper = styled.div`
+  ${tw` 
+    w-full 
+    h-full
+    md:w-[80%]  
+    md:h-[80%] 
+    overflow-hidden 
+    absolute  
+    z-[11111] 
+    flex 
+    flex-col
+  `}
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+`;
+
+export const CodeWrapper = styled.div`
+  ${tw`
+    w-full 
+    h-full 
+    bg-primary 
+  `}
+
+  .code {
+    ${tw`
+      p-5
+      block
+    `}
+  }
+`;
+
+export const OutputHeader = styled.div`
+  ${tw`
+    flex 
+    justify-between 
+    py-2 
+    px-5 
+    items-center 
+    select-none
+  `}
+
+  background: #47474c;
+`;
+
+export const Title = styled.div`
+  ${tw`
+    text-xl 
+  `}
+`;
+
+export const Actions = styled.div`
+  ${tw`
+    flex 
+    items-center
+    gap-4
+  `}
+`;
+
+export const ActionItem = styled.button`
+  ${tw`
+    text-xl 
+  `}
+
+  svg{
+    ${tw`
+      text-2xl 
+    `}
+  }
+`;
+
+export const ActionText = styled(ActionItem)`
+  ${tw`
+    hover:transform 
+    hover:-translate-y-1
+  `}
+  transition: transform ease-in-out 200ms;
+
+  span{
+    ${tw`
+      text-accent
+    `}
+  }
+`;
+
+export const Icon = styled.div`
+  ${tw`
+    flex 
+    items-center 
+    justify-center 
+    w-[30px] 
+    h-[30px]
+    rounded-full 
+    hover:bg-primary
+  `}
+`;

@@ -6,6 +6,26 @@ const CustomStyles = createGlobalStyle`
   body {
     ${tw`antialiased font-primary text-text`}
   }
+
+  .custom-scrollbar-vertical {
+    ${tw`
+      rounded-[3px]
+      bg-accent 
+      w-[0.4rem] 
+      z-[9999] 
+      cursor-pointer 
+    `}
+  }
+
+  .custom-scrollbar-horizontal{
+    ${tw`
+      rounded-[3px]
+      bg-accent 
+      h-[0.4rem] 
+      z-[9999] 
+      cursor-pointer 
+    `}
+  }
 `;
 
 const GlobalStyles = () => (

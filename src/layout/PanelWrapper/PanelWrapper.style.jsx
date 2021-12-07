@@ -11,14 +11,4 @@ export const Panel = styled.div`
   ::-webkit-scrollbar{
     display: none;
   }
-
-  .custom-scrollbar-vertical{
-    ${tw`
-      rounded-[3px]
-      bg-accent 
-      w-[0.4rem] 
-      z-[9999] 
-      cursor-pointer 
-    `}
-  }
 `;
