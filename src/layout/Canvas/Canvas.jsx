@@ -12,6 +12,8 @@ import { CanvasContext } from '../../context/Canvas.context';
 import useSizes from '../../hooks/useSizes';
 import { Spinner, Skeleton } from '../../shared/Spinner';
 
+// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+
 const Canvas = () => {
   // VITE BUG, need to do this to prevent error on development
   if(!CanvasContext) {
@@ -41,8 +43,8 @@ const Canvas = () => {
     filter: `grayscale(100%) contrast(${image.contrast}) blur(${image.blur}px) brightness(${image.brightness})`,
     mixBlendMode: `${image.blendMode}`,
     maxHeight: isMedium
-      ? `calc(100vh - 30px - calc(${wrapper.spacing}px * 2))`
-      : `calc(50vh - 30px - calc(${wrapper.spacing}px * 2))`,
+      ? `calc((100 * var(--vh)) - 30px - calc(${wrapper.spacing}px * 2))`
+      : `calc((50 * var(--vh)) - 30px - calc(${wrapper.spacing}px * 2))`,
   };
 
   const foregroundStyle = {
