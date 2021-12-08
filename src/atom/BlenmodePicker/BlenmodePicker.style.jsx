@@ -5,7 +5,7 @@ export const BlenmodePickerWrapper = styled.div`
     mb-6
   `} 
 
-.react-select-container{
+  .react-select-container{
     ${tw`
       w-full 
       md:max-w-xs

@@ -56,7 +56,9 @@ export const TogglePickerButton = styled.button`
     min-w-[40px]
     h-full  
     rounded-full 
-    mr-2
+    mr-2 
+    border-2 
+    border-white
   `}
 `;
 
