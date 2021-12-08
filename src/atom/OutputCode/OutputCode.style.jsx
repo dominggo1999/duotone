@@ -23,10 +23,11 @@ export const CodeWrapper = styled.div`
   ${tw`
     w-full 
     h-full 
-    bg-primary  
     text-sm
   `}
 
+  background: #19193d;
+  
   .code {
     ${tw`
       p-5
@@ -37,12 +38,13 @@ export const CodeWrapper = styled.div`
 
 export const OutputHeader = styled.div`
   ${tw`
+    rounded-t-xl
     flex 
     justify-between 
     py-2 
     px-5 
     items-center 
-    select-none
+    select-none 
   `}
 
   background: #47474c;
@@ -50,7 +52,7 @@ export const OutputHeader = styled.div`
 
 export const Title = styled.div`
   ${tw`
-    text-xl 
+    font-bold 
   `}
 `;
 
@@ -64,7 +66,7 @@ export const Actions = styled.div`
 
 export const ActionItem = styled.button`
   ${tw`
-    text-xl 
+    font-bold
   `}
 
   svg{
@@ -77,7 +79,8 @@ export const ActionItem = styled.button`
 export const ActionText = styled(ActionItem)`
   ${tw`
     md:hover:transform 
-    md:hover:-translate-y-1
+    md:hover:-translate-y-1 
+    h-full
   `}
   transition: transform ease-in-out 200ms;
 
@@ -96,6 +99,7 @@ export const Icon = styled.div`
     w-[30px] 
     h-[30px]
     rounded-full 
-    hover:bg-primary
+    hover:bg-accent 
+    hover:text-black
   `}
 `;

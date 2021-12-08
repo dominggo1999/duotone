@@ -81,6 +81,7 @@ const SettingsMobile = () => {
               value={image.blendMode}
               element="image"
               control="blendMode"
+              needPadding
             />
           </TabPanel>
           <TabPanel>

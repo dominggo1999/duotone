@@ -6,7 +6,7 @@ import { CanvasContext } from '../../context/Canvas.context';
 import { Info, LabelName } from '../../shared/SettingsSubHeader';
 
 const BlenmodePicker = ({
-  label, value, element, control,
+  label, value, element, control, needPadding,
 }) => {
   const { updateValue } = useContext(CanvasContext);
   const index = blendModes.map((i) => i.value).indexOf(value);
@@ -31,6 +31,17 @@ const BlenmodePicker = ({
           isSearchable={false}
           classNamePrefix="react-select"
         />
+        {
+          needPadding
+          && (
+          <>
+            <br />
+            <br />
+            <br />
+            <br />
+          </>
+          )
+        }
       </BlenmodePickerWrapper>
     );
   }, [value]);
