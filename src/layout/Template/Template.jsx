@@ -8,34 +8,7 @@ import {
   Blob,
 } from './Template.style';
 import { CanvasContext } from '../../context/Canvas.context';
-import { presets } from '../../config/presets';
-
-const generateBorder = (s1, s2) => {
-  return `${s2 + Math.ceil(Math.random() * (s1 - s2))}%`;
-};
-
-const createPoints = () => {
-  const f1 = generateBorder(40, 33);
-  const f2 = generateBorder(67, 60);
-  const f3 = generateBorder(64, 42);
-  const f4 = generateBorder(58, 30);
-  const f5 = generateBorder(64, 30);
-  const f6 = generateBorder(65, 30);
-  const f7 = generateBorder(70, 35);
-  const f8 = generateBorder(70, 36);
-
-  return `${f1} ${f2} ${f3} ${f4} / ${f5} ${f6} ${f7} ${f8}`;
-};
-
-const createKeyFrames = () => {
-  const frames = [];
-
-  for (let i = 0; i < 5; i += 1) {
-    frames.push(createPoints());
-  }
-
-  return frames;
-};
+import { presets as presetsWithRandomShapes } from '../../config/presets';
 
 const Template = () => {
   // VITE BUG, need to do this to prevent error on development
@@ -59,12 +32,8 @@ const Template = () => {
     return (
       <TemplateWrapper>
         {
-          presets && presets.slice(0, 20).map((i) => {
+          presetsWithRandomShapes && presetsWithRandomShapes.slice(0, 20).map((i) => {
             const { foreground, wrapper } = i.settings;
-
-            const frames = createKeyFrames();
-            const scaleTime = 10 + Math.ceil(Math.random() * 10);
-            const rotateTime = 30 + Math.ceil(Math.random() * 40);
 
             return (
               <TemplateItem
@@ -73,9 +42,9 @@ const Template = () => {
               >
                 <ColorPreview>
                   <Blob
-                    frames={frames}
-                    scaleTime={scaleTime}
-                    rotateTime={rotateTime}
+                    frames={i.frames}
+                    scaleTime={i.scaleTime}
+                    rotateTime={i.rotateTime}
                     style={{
                       backgroundImage: `linear-gradient(${foreground.bg},${wrapper.bg})`,
                     }}

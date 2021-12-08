@@ -89,7 +89,7 @@ const rotate = keyframes`
   }
 `;
 
-const animation = ({
+const blobAnimation = ({
   scaleTime, rotateTime,
 }) => css`
   ${morph} 10s linear infinite,
@@ -97,8 +97,14 @@ const animation = ({
   ${rotate} ${`${rotateTime}s`} linear infinite;
 `;
 
-export const Blob = styled.div`
-  animation: ${animation};
+export const Blob = styled.div.attrs(
+  () => ({
+    style: {
+      // animation: 'none',
+    },
+  }),
+)`
+  animation: ${blobAnimation};
   ${tw`
     w-full
     h-full 
@@ -116,7 +122,6 @@ export const TemplateItem = styled.div`
   `}
 
   transition: transform 400ms ease-in-out;
-
 
   @media screen and (min-width:768px){
     &:hover  {
