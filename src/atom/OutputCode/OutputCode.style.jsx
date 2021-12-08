@@ -23,7 +23,8 @@ export const CodeWrapper = styled.div`
   ${tw`
     w-full 
     h-full 
-    bg-primary 
+    bg-primary  
+    text-sm
   `}
 
   .code {
