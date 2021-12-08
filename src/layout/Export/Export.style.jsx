@@ -22,8 +22,9 @@ export const ExportSection = styled.div`
 
 export const Spinner = styled.div`
   ${tw` 
-    h-full
+    h-full 
   `}
+  aspect-ratio: 1/1;
 
   &::after {
     opacity: 80%;
