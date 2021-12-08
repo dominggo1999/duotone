@@ -82,7 +82,7 @@ const FilePicker = () => {
             </AccentColor>
             {' '}
 
-            images will be accepted
+            image will be accepted
           </AcceptedFileMessage>
           <br />
           <AcceptedFileMessage>

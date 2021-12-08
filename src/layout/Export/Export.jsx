@@ -6,6 +6,7 @@ import {
   ExportButton, ExportSection, Spinner, Backdrop,
 } from './Export.style';
 import OutputCode from '../../atom/OutputCode/OutputCode';
+import Message from '../Message/Message';
 
 const proxyUrl = import.meta.env.VITE_APP_IMAGE_PROXY;
 
@@ -77,6 +78,7 @@ const Export = () => {
       }
 
       {error && <p>{error}</p> }
+      <Message />
     </ExportSection>
   );
 };
