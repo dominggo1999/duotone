@@ -1,5 +1,5 @@
 import { keyframes } from 'styled-components';
-import tw, { styled } from 'twin.macro';
+import { styled } from 'twin.macro';
 import { colors } from '../constants/colors';
 
 const spinnerColor = colors.accent;
