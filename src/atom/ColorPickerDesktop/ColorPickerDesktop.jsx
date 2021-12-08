@@ -1,14 +1,15 @@
 import React, {
-  useState, useRef, useContext, useEffect, useMemo,
+  useState, useRef, useContext, useMemo,
 } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
 import { Portal } from 'react-portal';
 import {
-  ColorPickerWrapper, TogglePickerButton, Title, Symbol, MobilePicker,
+  ColorPickerWrapper, TogglePickerButton, Title, Symbol,
 } from './ColorPicker.style';
 import useClickOutside from '../../hooks/useClickOutside';
 import { CanvasContext } from '../../context/Canvas.context';
 import useSizes from '../../hooks/useSizes';
+import { Info, LabelName, Value } from '../../shared/SettingsSubHeader';
 
 const ColorPickerDesktop = ({
   label, value, element, control,
@@ -37,7 +38,9 @@ const ColorPickerDesktop = ({
   return useMemo(() => {
     return (
       <>
-        <Title>{label}</Title>
+        <Info>
+          <LabelName>{label}</LabelName>
+        </Info>
         <ColorPickerWrapper ref={ref}>
           <TogglePickerButton
             style={{

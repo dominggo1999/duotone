@@ -2,12 +2,11 @@ import React, { useContext, useMemo } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import {
   SliderBar,
-  Info,
-  LabelName,
-  Value,
 } from './Slider.style';
 import { colors } from '../../constants/colors';
 import { CanvasContext } from '../../context/Canvas.context';
+
+import { Info, LabelName, Value } from '../../shared/SettingsSubHeader';
 
 const Slider = ({
   step,

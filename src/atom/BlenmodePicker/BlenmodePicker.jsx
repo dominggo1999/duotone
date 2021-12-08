@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { BlenmodePickerWrapper, Title } from './BlenmodePicker.style';
 import { blendModes } from '../../constants/blenModes';
 import { CanvasContext } from '../../context/Canvas.context';
+import { Info, LabelName } from '../../shared/SettingsSubHeader';
 
 const BlenmodePicker = ({
   label, value, element, control,
@@ -18,9 +19,11 @@ const BlenmodePicker = ({
   return useMemo(() => {
     return (
       <BlenmodePickerWrapper>
-        <Title>
-          {label}
-        </Title>
+        <Info>
+          <LabelName>
+            {label}
+          </LabelName>
+        </Info>
         <Select
           defaultValue={defaultValue}
           onChange={handleChange}

@@ -4,7 +4,7 @@ import { BrandLogo } from './Brand.style';
 const Brand = () => {
   return (
     <BrandLogo>
-      Dutone Generator
+      Duotone Generator
     </BrandLogo>
   );
 };

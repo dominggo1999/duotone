@@ -9,11 +9,11 @@ export const SliderBar = styled.div`
     mb-5
   `}
 
-  --thumb-size: 22px;
+  --thumb-size: 18px;
   .wrapper {
     display: flex;
     width: 100%;
-    height: 36px;
+    height: 30px;
   }
 
   .track {
@@ -22,7 +22,7 @@ export const SliderBar = styled.div`
     align-self: center;
     margin-left: calc(var(--thumb-size) / 2);
     width: calc(100% - var(--thumb-size));
-    height: 7px; 
+    height: 5px; 
   }
 
   .track::before {
@@ -58,7 +58,7 @@ export const Info = styled.div`
 
 export const LabelName = styled.p`
   ${tw`
-    text-2xl 
+    text-xl
   `}
 `;
 
