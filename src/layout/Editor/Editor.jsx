@@ -11,7 +11,7 @@ const Editor = () => {
   const showState = () => {
     const{ useTemplate, updateValue, ...rest } = state;
 
-    navigator.clipboard.writeText(JSON.stringify(rest));
+    console.log(rest);
   };
 
   return (
