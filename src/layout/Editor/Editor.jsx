@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import'twin.macro';
 import Sidebar from '../Sidebar/Sidebar';
 import Canvas from '../Canvas/Canvas';
-import { Wrapper } from './Editor.style';
+import { Wrapper, CapsuleWrapper, Capsule } from './Editor.style';
 import { CanvasContext } from '../../context/Canvas.context';
 
 const Editor = () => {
@@ -15,6 +15,9 @@ const Editor = () => {
 
   return (
     <Wrapper>
+      <CapsuleWrapper>
+        <Capsule id="capsule" />
+      </CapsuleWrapper>
       <Sidebar />
       <Canvas />
     </Wrapper>

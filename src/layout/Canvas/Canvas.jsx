@@ -34,7 +34,9 @@ const Canvas = () => {
   const imageWrapperStyle = {
     position: 'relative',
     backgroundColor: wrapper.bg,
-    transform: `scale(${wrapper.scale})`,
+
+    // 0.97 is to give a little bif of padding on first load
+    transform: `scale(${wrapper.scale * 0.97})`,
     padding: `${wrapper.spacing}px`,
   };
 
@@ -43,8 +45,8 @@ const Canvas = () => {
     filter: `grayscale(100%) contrast(${image.contrast}) blur(${image.blur}px) brightness(${image.brightness})`,
     mixBlendMode: `${image.blendMode}`,
     maxHeight: isMedium
-      ? `calc((100 * var(--vh)) - 30px - calc(${wrapper.spacing}px * 2))`
-      : `calc((50 * var(--vh)) - 30px - calc(${wrapper.spacing}px * 2))`,
+      ? `calc((100 * var(--vh))  - calc(${wrapper.spacing}px * 2))`
+      : `calc((50 * var(--vh)) - calc(${wrapper.spacing}px * 2))`,
   };
 
   const foregroundStyle = {

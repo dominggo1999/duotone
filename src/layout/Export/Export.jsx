@@ -11,10 +11,38 @@ import Message from '../Message/Message';
 const proxyUrl = import.meta.env.VITE_APP_IMAGE_PROXY;
 
 const Export = () => {
-  const { image, updateValue } = useContext(CanvasContext);
+  const { image: img, wrapper, updateValue } = useContext(CanvasContext);
   const [loading, setLoading] = useState();
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState();
+
+  const generateImage = () => {
+    const canvas = document.getElementById('final-image');
+
+    const clonedCanvas = canvas.cloneNode(true);
+    const image = clonedCanvas.querySelector('img');
+
+    const realWidth = image.naturalWidth;
+    const realHeight = image.naturalHeight;
+    const canvasWidth = canvas.clientWidth;
+
+    const scale = realWidth / canvasWidth;
+    const scaledPadding = wrapper.spacing * scale;
+
+    clonedCanvas.style.position = 'absolute';
+    clonedCanvas.style.top = 0;
+    clonedCanvas.style.zIndex = -1;
+    clonedCanvas.style.transform = 'scale(1)';
+    clonedCanvas.style.padding = `${scaledPadding}px`;
+    clonedCanvas.style.width = `${realWidth}px`;
+    clonedCanvas.style.height = `${realHeight}px`;
+    image.style.width = `${realWidth - scaledPadding}px`;
+    image.style.height = `${realHeight - (scaledPadding * 2)}px`;
+    image.style.maxHeight = `${realHeight - (scaledPadding * 2)}px`;
+    image.style.filter = `grayscale(100%) contrast(${img.contrast}) blur(${img.blur * scale}px) brightness(${img.brightness})`;
+    document.querySelector('#capsule').appendChild(clonedCanvas);
+    return { canvas: clonedCanvas, scaled: true };
+  };
 
   let res;
 
@@ -47,7 +75,8 @@ const Export = () => {
   const downloadImage = async () => {
     setLoading(true);
 
-    const canvas = document.getElementById('final-image');
+    const { canvas, scaled } = generateImage();
+
     await DomToImage.toPng(canvas, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement('a');
@@ -57,7 +86,11 @@ const Export = () => {
         setLoading(false);
       })
       .catch((err) => {
-        proxy(image.src);
+        proxy(img.src);
+      }).finally(() => {
+        if(scaled) {
+          canvas.remove();
+        }
       });
   };
 
