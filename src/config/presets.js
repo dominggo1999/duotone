@@ -33,6 +33,68 @@ export const presets = [
     rotateTime: 31,
   },
   {
+    name: 'kinda red',
+    settings: {
+      image: {
+        blendMode: 'multiply',
+        opacity: 80,
+        blur: 0,
+        brightness: 1,
+        contrast: 1,
+      },
+      foreground: {
+        bg: '#0A0505',
+        blendMode: 'lighten',
+      },
+      wrapper: {
+        spacing: '15',
+        scale: 1,
+        bg: '#F00E2E',
+      },
+    },
+    frames: [
+      '37% 62% 52% 45% / 62% 60% 37% 57%',
+      '38% 67% 51% 45% / 36% 48% 41% 53%',
+      '38% 67% 58% 52% / 33% 47% 40% 46%',
+      '40% 67% 46% 45% / 62% 44% 60% 40%',
+      '34% 66% 62% 31% / 37% 44% 36% 66%',
+    ],
+    scaleTime: 20,
+    rotateTime: 44,
+  },
+  {
+    name: 'lemon',
+    settings: {
+      image: {
+        blendMode: 'multiply',
+        opacity: [
+          68,
+        ],
+        blur: 0,
+        brightness: 1,
+        contrast: 1,
+      },
+      foreground: {
+        bg: '#a35e2d',
+        blendMode: 'lighten',
+      },
+      wrapper: {
+        spacing: '15',
+        scale: 1,
+        bg: '#ffea00',
+      },
+    },
+    frames: [
+      '34% 67% 60% 47% / 46% 31% 46% 63%',
+      '38% 67% 50% 57% / 43% 52% 54% 58%',
+      '38% 66% 59% 41% / 46% 54% 38% 44%',
+      '34% 67% 53% 52% / 52% 48% 51% 53%',
+      '34% 66% 55% 56% / 53% 63% 62% 60%',
+    ],
+    scaleTime: 13,
+    rotateTime: 68,
+  },
+  {
     name: 'purply',
     settings: {
       image: {
@@ -63,6 +125,36 @@ export const presets = [
     ],
     scaleTime: 11,
     rotateTime: 42,
+  },
+  {
+    name: 'vintage memo',
+    settings: {
+      image: {
+        blendMode: 'multiply',
+        opacity: 80,
+        blur: 0,
+        brightness: 1,
+        contrast: 1,
+      },
+      foreground: {
+        bg: '#290900',
+        blendMode: 'lighten',
+      },
+      wrapper: {
+        spacing: '15',
+        scale: 1,
+        bg: '#FFEFB3',
+      },
+    },
+    frames: [
+      '37% 66% 52% 48% / 61% 34% 64% 68%',
+      '40% 64% 62% 43% / 63% 64% 59% 59%',
+      '37% 67% 64% 53% / 31% 40% 41% 63%',
+      '35% 65% 56% 41% / 45% 45% 70% 41%',
+      '35% 65% 62% 39% / 54% 34% 67% 64%',
+    ],
+    scaleTime: 11,
+    rotateTime: 36,
   },
   {
     name: 'princess blue',
@@ -225,36 +317,6 @@ export const presets = [
     rotateTime: 53,
   },
   {
-    name: 'vintage memo',
-    settings: {
-      image: {
-        blendMode: 'multiply',
-        opacity: 80,
-        blur: 0,
-        brightness: 1,
-        contrast: 1,
-      },
-      foreground: {
-        bg: '#290900',
-        blendMode: 'lighten',
-      },
-      wrapper: {
-        spacing: '15',
-        scale: 1,
-        bg: '#FFEFB3',
-      },
-    },
-    frames: [
-      '37% 66% 52% 48% / 61% 34% 64% 68%',
-      '40% 64% 62% 43% / 63% 64% 59% 59%',
-      '37% 67% 64% 53% / 31% 40% 41% 63%',
-      '35% 65% 56% 41% / 45% 45% 70% 41%',
-      '35% 65% 62% 39% / 54% 34% 67% 64%',
-    ],
-    scaleTime: 11,
-    rotateTime: 36,
-  },
-  {
     name: 'perrywinkle',
     settings: {
       image: {
@@ -317,38 +379,6 @@ export const presets = [
     ],
     scaleTime: 14,
     rotateTime: 42,
-  },
-  {
-    name: 'lemon',
-    settings: {
-      image: {
-        blendMode: 'multiply',
-        opacity: [
-          68,
-        ],
-        blur: 0,
-        brightness: 1,
-        contrast: 1,
-      },
-      foreground: {
-        bg: '#a35e2d',
-        blendMode: 'lighten',
-      },
-      wrapper: {
-        spacing: '15',
-        scale: 1,
-        bg: '#ffea00',
-      },
-    },
-    frames: [
-      '34% 67% 60% 47% / 46% 31% 46% 63%',
-      '38% 67% 50% 57% / 43% 52% 54% 58%',
-      '38% 66% 59% 41% / 46% 54% 38% 44%',
-      '34% 67% 53% 52% / 52% 48% 51% 53%',
-      '34% 66% 55% 56% / 53% 63% 62% 60%',
-    ],
-    scaleTime: 13,
-    rotateTime: 68,
   },
   {
     name: 'witch hazel',
@@ -471,36 +501,6 @@ export const presets = [
     ],
     scaleTime: 15,
     rotateTime: 39,
-  },
-  {
-    name: 'kinda red',
-    settings: {
-      image: {
-        blendMode: 'multiply',
-        opacity: 80,
-        blur: 0,
-        brightness: 1,
-        contrast: 1,
-      },
-      foreground: {
-        bg: '#0A0505',
-        blendMode: 'lighten',
-      },
-      wrapper: {
-        spacing: '15',
-        scale: 1,
-        bg: '#F00E2E',
-      },
-    },
-    frames: [
-      '37% 62% 52% 45% / 62% 60% 37% 57%',
-      '38% 67% 51% 45% / 36% 48% 41% 53%',
-      '38% 67% 58% 52% / 33% 47% 40% 46%',
-      '40% 67% 46% 45% / 62% 44% 60% 40%',
-      '34% 66% 62% 31% / 37% 44% 36% 66%',
-    ],
-    scaleTime: 20,
-    rotateTime: 44,
   },
   {
     name: 'purplish pink',
