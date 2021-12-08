@@ -1,6 +1,7 @@
 import React from 'react';
 import 'twin.macro';
 import { Spinner, Skeleton } from '../shared/Spinner';
+import Brand from '../layout/Brand/Brand';
 
 const Fallback = () => {
   return (
@@ -8,6 +9,7 @@ const Fallback = () => {
       <Spinner>
         <Skeleton />
       </Spinner>
+      <Brand />
       <p>Loading... </p>
     </div>
   );
