@@ -16,7 +16,7 @@ const Export = () => {
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState();
 
-  const generateImage = () => {
+  const generateImage = async () => {
     const canvas = document.getElementById('final-image');
 
     const clonedCanvas = canvas.cloneNode(true);
@@ -75,7 +75,7 @@ const Export = () => {
   const downloadImage = async () => {
     setLoading(true);
 
-    const { canvas, scaled } = generateImage();
+    const { canvas, scaled } = await generateImage();
 
     await DomToImage.toPng(canvas, { cacheBust: true })
       .then((dataUrl) => {
