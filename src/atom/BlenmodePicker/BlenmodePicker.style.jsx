@@ -6,17 +6,31 @@ export const BlenmodePickerWrapper = styled.div`
   `} 
 
   .react-select-container{
-    ${tw`
+    ${tw` 
       w-full 
-      md:max-w-xs
+      md:max-w-xs  
     `}
+    background: #10153a;
   }
+
   .react-select__control{
     ${tw`
       bg-transparent 
-      font-primary 
+      font-primary   
+      border
     `}
   }
+
+  .react-select__control--is-focused,
+  .react-select__control--menu-is-open{
+    ${tw`
+      border
+      border-accent 
+      hover:border-accent
+    `}
+  }
+
+
   .react-select__indicator-separator{
     display: none;
   }
@@ -38,22 +52,34 @@ export const BlenmodePickerWrapper = styled.div`
       focus:border-white
     `}
   }
+
+  .react-select__menu-list {
+    padding: 0;
+  }
+
   .react-select__menu{
     ${tw`
       text-black 
-      font-primary 
+      font-primary        
     `}
   }
 
   .react-select__option {
-    cursor: pointer;
+    cursor: pointer; 
+    background: #10153a;
+    ${tw`
+      text-white 
+      font-medium
+    `}
   }
 
   .react-select__option:hover{
     background:  #71c2c5;
+    ${tw`text-black`}
   }
   .react-select__option--is-focused{
     background:  #71c2c5;
+    ${tw`text-black`}
   }
   .react-select__option--is-selected{
     color:black;
