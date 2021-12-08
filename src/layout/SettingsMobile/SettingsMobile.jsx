@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { FiLayers } from 'react-icons/fi';
+import { IoIosColorPalette } from 'react-icons/io';
+import { MdOutlineZoomOutMap, MdOutlineOpacity } from 'react-icons/md';
+import { ImBrightnessContrast } from 'react-icons/im';
 import Slider from '../../atom/Slider/Slider';
 import { CanvasContext } from '../../context/Canvas.context';
 import {
-  Tabs, TabList, Tab, TabPanel, SettingsMobileWrapper,
+  Tabs, TabList, Tab, TabPanel, SettingsMobileWrapper, TabLabel,
 } from './SettingsMobile.style';
 import PanelWrapper from '../PanelWrapper/PanelWrapper';
 import ColorPickerDesktop from '../../atom/ColorPickerDesktop/ColorPickerDesktop';
@@ -11,24 +13,24 @@ import BlenmodePicker from '../../atom/BlenmodePicker/BlenmodePicker';
 
 const icons = [
   {
-    id: 'FiLayers',
-    icon: FiLayers,
-    name: 'Template',
+    id: 'colors',
+    icon: IoIosColorPalette,
+    name: 'Colors',
   },
   {
-    id: 'customize',
-    icon: FiLayers,
-    name: 'Settings',
+    id: 'zoom',
+    icon: MdOutlineZoomOutMap,
+    name: 'Zoom',
   },
   {
-    id: 'image',
-    icon: FiLayers,
-    name: 'Image',
+    id: 'effect',
+    icon: MdOutlineOpacity,
+    name: 'Effect',
   },
   {
-    id: 'export',
-    icon: FiLayers,
-    name: 'Export',
+    id: 'contrast',
+    icon: ImBrightnessContrast,
+    name: 'Contrast',
   },
 ];
 
@@ -48,6 +50,7 @@ const SettingsMobile = () => {
               return (
                 <Tab key={i.id}>
                   <Icon />
+                  <TabLabel>{name}</TabLabel>
                 </Tab>
               );
             })

@@ -1,5 +1,7 @@
 import React from 'react';
-import { FiLayers } from 'react-icons/fi';
+import { FiUpload } from 'react-icons/fi';
+import { SiPexels } from 'react-icons/si';
+import { AiOutlineLink } from 'react-icons/ai';
 import FilePicker from '../../atom/FilePicker/FilePicker';
 import {
   Tab, Tabs, TabList, TabPanel,
@@ -11,18 +13,18 @@ import ImageFinderURLMode from '../../atom/ImageFinder/ImageFinderURLMode';
 
 const icons = [
   {
-    id: 'FiLayers',
-    icon: FiLayers,
+    id: 'Upload',
+    icon: FiUpload,
     name: 'Upload',
   },
   {
     id: 'customize',
-    icon: FiLayers,
+    icon: SiPexels,
     name: 'Pexels',
   },
   {
     id: 'url',
-    icon: FiLayers,
+    icon: AiOutlineLink,
     name: 'Url',
   },
 ];

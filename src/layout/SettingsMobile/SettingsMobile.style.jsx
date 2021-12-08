@@ -32,6 +32,11 @@ export const TabList = styled(UnstyledTabList)`
     bg-primary
   `}
 `;
+export const TabLabel = styled.span`
+  ${tw`
+    text-[12px]
+  `}
+`;
 
 export const Tab = styled(UnstyledTab).attrs({
   selectedClassName: 'selected',
@@ -53,7 +58,7 @@ export const Tab = styled(UnstyledTab).attrs({
   transition: all ease-in-out 100ms ;
 
   svg{
-    ${tw`text-xl`}
+    ${tw`text-xl mb-2`}
   }
 
   &.selected {

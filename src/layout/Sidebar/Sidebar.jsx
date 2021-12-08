@@ -22,7 +22,7 @@ const icons = [
   {
     id: 'FiLayers',
     icon: FiLayers,
-    name: 'Template',
+    name: 'Presets',
   },
   {
     id: 'customize',
