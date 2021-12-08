@@ -8,20 +8,13 @@ import { CanvasContext } from '../../context/Canvas.context';
 const Editor = () => {
   const state = useContext(CanvasContext);
 
+  // For Debugging only
   const showState = () => {
     const{ useTemplate, updateValue, ...rest } = state;
-
-    console.log(rest);
   };
 
   return (
     <Wrapper>
-      <button
-        onClick={showState}
-        tw="absolute right-0 top-0 bg-red-500 text-white z-[9999]"
-      >
-        show state
-      </button>
       <Sidebar />
       <Canvas />
     </Wrapper>

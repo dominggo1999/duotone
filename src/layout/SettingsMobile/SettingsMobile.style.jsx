@@ -29,7 +29,9 @@ export const TabList = styled(UnstyledTabList)`
   ${tw`   
     flex   
     justify-between  
-    bg-primary
+    bg-primary 
+    pt-2
+    md:pt-0 
   `}
 `;
 export const TabLabel = styled.span`

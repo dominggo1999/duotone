@@ -27,7 +27,7 @@ export const Tabs = styled(UnstyledTabs)`
     flex-col-reverse 
     justify-between
     md:flex-col
-    md:justify-start 
+    md:justify-start  
   `}
 `;
 
@@ -39,7 +39,8 @@ export const TabList = styled(UnstyledTabList)`
     md:py-0
     md:pt-5
     px-4 
-    md:px-5 
+    md:px-5  
+    md:mb-2
     font-medium
   `}
 `;

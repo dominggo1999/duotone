@@ -1,7 +1,7 @@
 export const colors = {
   text: '#D2D2DF',
   primary: '#02051F',
-  secondary: '#52567a',
+  secondary: '#636577',
   accent: '#1BE4C9',
   highlight: '#737382',
   purple: '#6546C2',
