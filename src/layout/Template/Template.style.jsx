@@ -14,14 +14,15 @@ export const TemplateWrapper = styled.div`
 export const TemplateName = styled.div`
   ${tw`
     font-primary 
-    text-center 
-    font-semibold
+    text-center  
+    text-sm 
+    font-medium
   `}
 `;
 
 export const ColorPreview = styled.div`
   ${tw`
-    w-[80%]  
+    w-[76%]  
     flex  
     items-center 
     justify-center 

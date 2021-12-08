@@ -10,14 +10,14 @@ export const Info = styled.div`
 `;
 
 export const LabelName = styled.p`
-  ${tw`
-    text-xl 
-  `}
+  ${tw` 
+    font-semibold
+    text-[1.15rem]
+  `} 
 `;
 
 export const Value = styled.p`
   ${tw`
-    text-xl 
-    text-accent 
+    text-accent  
   `}
 `;

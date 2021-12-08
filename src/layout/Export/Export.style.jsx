@@ -51,8 +51,14 @@ export const ExportButton = styled.button`
     justify-center 
     items-center   
     w-1/2 
-    min-w-[150px]
+    min-w-[180px]
+    font-medium
   `}
+
+  &:hover{
+    background: #92e4d9;
+  }
+
 `;
 
 export const Backdrop = styled.div`

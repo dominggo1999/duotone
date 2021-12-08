@@ -5,7 +5,7 @@ export const ColorPickerWrapper = styled.div`
   ${tw`
     relative  
     flex 
-    mb-5 
+    mb-6 
     h-[40px]   
   `}
 
@@ -27,12 +27,12 @@ export const ColorPickerWrapper = styled.div`
       border 
       border-white 
       rounded-xl 
-      text-xl 
       w-5/12
       md:w-full 
       px-8  
       focus:border-accent 
-      outline-none
+      outline-none 
+      text-accent
     `}
   }
 

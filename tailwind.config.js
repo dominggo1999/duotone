@@ -23,7 +23,7 @@ module.exports = {
         text,
       },
       fontFamily: {
-        primary: ['Fira Sans Extra Condensed', 'sans-serif'],
+        primary: ['Nunito', 'sans-serif'],
       },
       borderColor: {
         accent,

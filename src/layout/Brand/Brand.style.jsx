@@ -6,6 +6,7 @@ export const BrandLogo = styled.div`
     md:block
     text-accent 
     text-2xl 
-    text-center
+    text-center 
+    font-bold
   `}
 `;

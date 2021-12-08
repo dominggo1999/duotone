@@ -2,7 +2,7 @@ import tw, { styled } from 'twin.macro';
 
 export const BlenmodePickerWrapper = styled.div`
   ${tw`
-    mb-4
+    mb-6
   `} 
 
 .react-select-container{

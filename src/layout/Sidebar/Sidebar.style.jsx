@@ -39,7 +39,8 @@ export const TabList = styled(UnstyledTabList)`
     md:py-0
     md:pt-5
     px-4 
-    md:px-5
+    md:px-5 
+    font-medium
   `}
 `;
 
