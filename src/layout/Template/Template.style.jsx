@@ -98,14 +98,13 @@ const blobAnimation = ({
   ${rotate} ${`${rotateTime}s`} linear infinite;
 `;
 
-export const Blob = styled.div.attrs(
-  () => ({
-    style: {
-      // animation: 'none',
-    },
-  }),
-)`
-  animation: ${blobAnimation};
+export const Blob = styled.div`
+  @media screen and (min-width:768px){
+    animation: ${blobAnimation} ;
+  }
+
+  border-radius: ${({ frames }) => frames[0]};
+
   ${tw`
     w-full
     h-full 
