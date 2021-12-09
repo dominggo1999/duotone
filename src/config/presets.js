@@ -127,7 +127,7 @@ export const presets = [
     rotateTime: 42,
   },
   {
-    name: 'vintage memo',
+    name: 'vintage',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -285,7 +285,7 @@ export const presets = [
     rotateTime: 65,
   },
   {
-    name: 'geranium red',
+    name: 'geranium',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -503,7 +503,7 @@ export const presets = [
     rotateTime: 39,
   },
   {
-    name: 'purplish pink',
+    name: 'melodramatic',
     settings: {
       image: {
         blendMode: 'multiply',
@@ -593,7 +593,7 @@ export const presets = [
     rotateTime: 70,
   },
   {
-    name: 'sephia orange',
+    name: 'sephia',
     settings: {
       image: {
         blendMode: 'multiply',
