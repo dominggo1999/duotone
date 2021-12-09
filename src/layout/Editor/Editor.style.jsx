@@ -15,7 +15,7 @@ export const CapsuleWrapper = styled.div`
   ${tw`
     w-full 
     h-full 
-    bg-red-500 
+    bg-primary
     absolute 
     top-0  
     left-0 

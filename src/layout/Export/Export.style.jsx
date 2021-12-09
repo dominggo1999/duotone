@@ -69,7 +69,7 @@ export const ExportButton = styled.button`
     svg{
       ${tw`
         text-lg 
-        mr-2
+        mr-2 
       `}
     }
   }

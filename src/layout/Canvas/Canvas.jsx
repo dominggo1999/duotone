@@ -38,6 +38,7 @@ const Canvas = () => {
     // 0.97 is to give a little bif of padding on first load
     transform: `scale(${wrapper.scale * 0.97})`,
     padding: `${wrapper.spacing}px`,
+    transition: 'width 300ms ease-in-out',
   };
 
   const imageStyle = {
