@@ -15,7 +15,6 @@ export const ExportSection = styled.div`
     py-2 
     flex  
     flex-col  
-    items-center
     gap-y-2
   `}
 `;
@@ -51,12 +50,28 @@ export const ExportButton = styled.button`
     justify-center 
     items-center   
     w-1/2 
-    min-w-[180px]
-    font-medium
+    min-w-[220px]
+    font-medium 
+    font-semibold 
+    mx-auto
   `}
 
   &:hover{
     background: #92e4d9;
+  }
+
+  span {
+    ${tw`
+      inline-flex 
+      items-center
+    `}
+
+    svg{
+      ${tw`
+        text-lg 
+        mr-2
+      `}
+    }
   }
 
 `;

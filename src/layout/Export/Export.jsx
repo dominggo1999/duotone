@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import DomToImage from '@yzfe/dom-to-image';
 import { Portal } from 'react-portal';
+import { BiDownload } from 'react-icons/bi';
+import { HiCode } from 'react-icons/hi';
 import { CanvasContext } from '../../context/Canvas.context';
 import {
   ExportButton, ExportSection, Spinner, Backdrop,
@@ -96,8 +98,19 @@ const Export = () => {
 
   return (
     <ExportSection>
-      <ExportButton onClick={downloadImage}> {loading ? <Spinner /> : 'Download as PNG' }</ExportButton>
-      <ExportButton onClick={() => setShowModal(true)}>HTML and CSS Code</ExportButton>
+      <ExportButton onClick={downloadImage}> {loading ? <Spinner /> : (
+        <span>
+          <BiDownload />
+          Download as PNG
+        </span>
+      ) }
+      </ExportButton>
+      <ExportButton onClick={() => setShowModal(true)}>
+        <span>
+          <HiCode />
+          HTML and CSS Code
+        </span>
+      </ExportButton>
 
       {
         showModal
