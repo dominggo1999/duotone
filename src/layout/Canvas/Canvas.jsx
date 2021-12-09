@@ -82,6 +82,7 @@ const Canvas = () => {
           style={imageStyle}
           draggable="false"
           onLoad={() => setLoading(false)}
+          alt="Background"
         />
         <Foreground style={foregroundStyle} />
       </ImageWrapper>
