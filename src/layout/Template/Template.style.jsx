@@ -22,7 +22,7 @@ export const TemplateName = styled.div`
 
 export const ColorPreview = styled.div`
   ${tw`
-    w-[76%]  
+    w-full
     flex  
     items-center 
     justify-center 
@@ -113,7 +113,7 @@ export const Blob = styled.div`
 
 export const TemplateItem = styled.div`
   ${tw`
-    w-1/3
+    w-[26%]
     cursor-pointer 
     flex 
     flex-col
