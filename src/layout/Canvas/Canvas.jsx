@@ -77,6 +77,7 @@ const Canvas = () => {
         loading={loading ? 'hidden' : null}
       >
         <Image
+          id="bg-image"
           src={image.src}
           style={imageStyle}
           draggable="false"
