@@ -157,7 +157,7 @@ export const presets = [
     rotateTime: 36,
   },
   {
-    name: 'princess blue',
+    name: 'blau',
     settings: {
       image: {
         blendMode: 'overlay',
